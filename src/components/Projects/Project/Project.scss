@@ -1,0 +1,86 @@
+.Project{
+    margin-top: 5vh;
+
+    h3{
+        font-size: 2.2vw;
+    }
+    .Project--Informations{
+
+        display: flex;
+        height: 80vh;
+
+        .rightSide{
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            &--top{
+                background-color: #595066;
+                color: #fff;
+                padding: 1vh 0 1vh 2vw;
+
+                h3{
+                    margin: 2vh 0;
+                }
+
+
+                .skillDiv{
+                    display: flex;
+                    align-items: center;
+                    margin-top: 1vh;
+
+                    i{
+                        height: 50px;
+                        width: 50px;
+                        font-size: 3vw;
+                        text-align: center;
+                    }
+                    p{
+                        margin-left: 1vw;
+                    }
+
+                    .percentageDiv{
+                        position: relative;
+                        height: 2vh;
+                        width: 60%;
+                        background-color: rgb(255, 255, 255);
+                        border-radius: 4px;
+                        margin-left: 1vw;
+                        .percent{
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            background-color: #000;
+                            height: 100%;
+                            border-radius: 4px;
+                        }
+                    }
+                }
+            }
+
+            &--bottom{
+                background-color: #e772f1;
+                padding: 1vh 1vw;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: fit-content;
+                font-size: 1.4vw;
+
+            }
+        }
+
+        .leftSide{
+            width: 50%;
+            height: 100%;
+            background-color: #000;
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+}
