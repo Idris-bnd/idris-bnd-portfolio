@@ -1,5 +1,41 @@
 .Navigation{
 
+    .navigationsLinks{
+        list-style: none;
+        li{
+            margin-left: -10vw;
+            font-size: 1.5vw;
+            transition: margin .9s;
+            a{
+                color: #000;
+                text-decoration: none;
+            }
+        }
+        
+        &.open{
+            
+            li:nth-child(1){
+                color: red;
+                margin-left: 3vw;
+                transition: margin .3s;
+            }
+            li:nth-child(2){
+                color: red;
+                margin-left: 3vw;
+                transition: margin .6s;
+            }
+            li:nth-child(3){
+                color: red;
+                margin-left: 3vw;
+                transition: margin .8s;
+            }
+        }
+    }
+
+
+
+
+    // animation et css du burger
     .menu-btn {
         width: 80px;
         height: 80px;
