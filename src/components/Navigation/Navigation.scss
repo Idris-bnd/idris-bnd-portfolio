@@ -4,6 +4,7 @@
     left: 0;
 
     .navigationsLinks{
+        margin-top: 5vh;
         list-style: none;
         li{
             margin-left: -10vw;
@@ -37,8 +38,10 @@
 
     // animation et css du burger
     .menu-btn {
-        width: 80px;
-        height: 80px;
+        width: 40px;
+        height: 40px;
+        margin-top: 3vh;
+        margin-left: 2vw;
         position: relative;
         display: flex;
         justify-content: center;

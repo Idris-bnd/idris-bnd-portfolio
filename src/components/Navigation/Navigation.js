@@ -7,7 +7,7 @@ import './Navigation.scss';
 
 function Navigation() {
     const dispatch = useDispatch();
-    const navOpen = useSelector((state) => state.reducer.webSite.navOpen)
+    const navOpen = useSelector((state) => state.reducer.webSiteThings.navOpen)
 
     const handleClickNav = () => {
         dispatch(setNav());

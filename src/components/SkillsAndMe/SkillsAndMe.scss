@@ -2,9 +2,13 @@
 
     display: flex;
     margin-top: 10vh;
+    height: 85vh;
 
     .leftSide{
         width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
 
         &--top{
             display: flex;
@@ -16,17 +20,49 @@
 
         &--bottom{
             background-color: #595066;
+            height: 100%;
             color: #fff;
+            padding: 1vh 0 1vh 2vw;
 
-            h3{
-                padding-top: 1vh;
-                padding-left: 1vw;
+
+            .skillDiv{
+                display: flex;
+                align-items: center;
+                margin-top: 1vh;
+
+                i{
+                    height: 50px;
+                    width: 50px;
+                    font-size: 3vw;
+                    text-align: center;
+                }
+                p{
+                    margin-left: 1vw;
+                }
+
+                .percentageDiv{
+                    position: relative;
+                    height: 2vh;
+                    width: 60%;
+                    background-color: rgb(255, 255, 255);
+                    border-radius: 4px;
+                    margin-left: 1vw;
+                    .percent{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        background-color: #000;
+                        height: 100%;
+                        border-radius: 4px;
+                    }
+                }
             }
         }
     }
 
     .rightSide{
         width: 50%;
+        height: 100%;
         background-color: #000;
         img{
             height: 100%;
