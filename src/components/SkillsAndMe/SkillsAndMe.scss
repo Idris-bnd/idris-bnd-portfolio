@@ -15,7 +15,7 @@
             flex-direction: column;
             justify-content: center;
             height: 10vh;
-            font-size: 1.3vw;
+            font-size: 1.4vw;
         }
 
         &--bottom{
@@ -23,6 +23,10 @@
             height: 100%;
             color: #fff;
             padding: 1vh 0 1vh 2vw;
+
+            h3{
+                margin: 2vh 0;
+            }
 
 
             .skillDiv{
