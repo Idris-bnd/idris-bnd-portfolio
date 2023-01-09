@@ -18,7 +18,7 @@ function Project({ title, imageLink, skillsList, description }) {
             <div className="rightSide">
 
                 <div className="rightSide--top">
-                    <h3>My Skills</h3>
+                    <h3>Compétences utilisées sur ce projet</h3>
 
                     {skillsList.map((skill) => (
                         <div key={skill.name} className="skillDiv">
