@@ -21,7 +21,7 @@ function Navigation() {
 
         <ul className={`navigationsLinks ${navOpen ? 'open' : ''}`}>
             <li>
-                <a href="#Home">Home</a>
+                <a href="#Skills">Skills</a>
             </li>
             <li>
                 <a href="#Projects">Projects</a>

@@ -9,7 +9,7 @@ function SkillsAndMe() {
 
 
   return(
-    <section className='SkillsAndMe'>
+    <section id='Skills' className='SkillsAndMe'>
        
        <div className="leftSide">
 
