@@ -1,4 +1,7 @@
 .Navigation{
+    position: fixed;
+    top: 0;
+    left: 0;
 
     .navigationsLinks{
         list-style: none;
@@ -7,7 +10,7 @@
             font-size: 1.5vw;
             transition: margin .9s;
             a{
-                color: #000;
+                color: #231F20;
                 text-decoration: none;
             }
         }
@@ -15,17 +18,14 @@
         &.open{
             
             li:nth-child(1){
-                color: red;
                 margin-left: 3vw;
                 transition: margin .3s;
             }
             li:nth-child(2){
-                color: red;
                 margin-left: 3vw;
                 transition: margin .6s;
             }
             li:nth-child(3){
-                color: red;
                 margin-left: 3vw;
                 transition: margin .8s;
             }
@@ -45,44 +45,45 @@
         align-items: center;
         cursor: pointer;
         transition: all .2s ease-in-out;
-        
+    
+
         .menu-btn__burger {
             width: 40px;
             height: 6px;
-            background: #fff;
+            background: #231F20;
             border-radius: 5px;
             transition: all .2s ease-in-out;
         }
-        
+
         .menu-btn__burger::before,
         .menu-btn__burger::after {
             content: '';
             position: absolute;
             width: 40px;
             height: 6px;
-            background: #fff;
+            background: #231F20;
             border-radius: 5px;
             transition: all .2s ease-in-out;
         }
-        
+
         .menu-btn__burger::before {
             transform: translateY(-16px);
         }
-        
+
         .menu-btn__burger::after {
             transform: translateY(16px);
         }
-        
-        
-        .menu-btn.open .menu-btn__burger {
+
+
+        &.open .menu-btn__burger {
             transform: translateX(-50px);
             background: transparent;
         }
-        
-        .menu-btn.open .menu-btn__burger::before {
+
+        &.open .menu-btn__burger::before {
             transform: rotate(45deg) translate(35px, -35px);
         }
-        .menu-btn.open .menu-btn__burger::after {
+        &.open .menu-btn__burger::after {
             transform: rotate(-45deg) translate(35px, 35px);
         }
     }

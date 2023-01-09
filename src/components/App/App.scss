@@ -5,11 +5,14 @@
 }
 
 body{
-    background-color: #E8E4EB;
+    background-color: #e6cbfc;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
 }
 
 .App{
-    width: 100vw;
-    min-height: 80vh;
+    width: 70vw;
+    min-height: 250vh;
     font-family: 'Open Sans', sans-serif;
 }

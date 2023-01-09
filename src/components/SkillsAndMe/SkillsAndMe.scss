@@ -1,0 +1,37 @@
+.SkillsAndMe{
+
+    display: flex;
+    margin-top: 10vh;
+
+    .leftSide{
+        width: 50%;
+
+        &--top{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 10vh;
+            font-size: 1.3vw;
+        }
+
+        &--bottom{
+            background-color: #595066;
+            color: #fff;
+
+            h3{
+                padding-top: 1vh;
+                padding-left: 1vw;
+            }
+        }
+    }
+
+    .rightSide{
+        width: 50%;
+        background-color: #000;
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
