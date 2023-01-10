@@ -2,7 +2,7 @@ import React from 'react';
 import './Project.scss';
 
 
-function Project({ image, title, skillsList }) {
+function Project({ image, title, lien, skillsList }) {
 
 
   return(
@@ -11,7 +11,7 @@ function Project({ image, title, skillsList }) {
 
         <div className="Skills">
             <h3>Compétences sur ce projet</h3>
-            <h3 className='ProjectTitle'>{title}</h3>
+            <h3 className='ProjectTitle'><a href={lien}>{title}</a></h3>
 
             {skillsList.map((skill) => (
                 <div key={skill.name} className="skillDiv">

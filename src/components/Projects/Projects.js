@@ -17,10 +17,10 @@ function Projects() {
             {ProjectsList.map((project) => (
                 <Project
                     key={project.name}
+                    image={project.image}
                     title={project.name}
                     skillsList={project.skills}
-                    description={project.description}
-                    image={project.image}
+                    lien={project.lien}
                 />
             ))}
         </div>

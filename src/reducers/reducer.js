@@ -65,7 +65,7 @@ export const initialState = {
       {
         name: "Dance Riser",
         image: imageDanceRiser,
-        // description: "En tant que lead Développeur Front-end, dans une équipe de 4 personne, on à créer un site qui permet de mettre en relation des professeur(e)s d'écoles de dance et leurs élèves. Pour ce faire on à utiliser React, Redux, Sass et des API REST pour communiquer avec le back qui est en symfony, twig et mySQL.",
+        lien: "https://www.dance-riser.com/",
         skills:[
           {
             logo: 'fa-brands fa-react',
@@ -96,7 +96,7 @@ export const initialState = {
       {
         name: "Mon Portfolio",
         image: "https://resize-parismatch.lanmedia.fr/var/pm/public/media/image/2022/07/12/18/en-photos-la-nasa-devoile-de-nouvelles-images-exceptionnelles-de-james-webb.jpg?VersionId=If5aBJcsJjgugzl0hwYEM9o3DmNzTuU7",
-        // description: "Vous êtes justement dessus ;), il a été réalisé en React Redux, et Sass. Je prévoie prochainement de faire un back en Node js afin d'appeler mes projets en API REST et de rendre ce site 100% dynamique",
+        lien: "",
         skills:[
           {
             logo: 'fa-brands fa-react',
@@ -115,7 +115,7 @@ export const initialState = {
       {
         name: "Choose",
         image: imageChoose,
-        // description: "Site pour générer des couleurs aléatoirement, pour ce site j'ai utilisé react avec ses props et ses validations et du scss/sass également. le repo est ici et le site ici!",
+        lien: "https://choose-8d461.web.app/",
         skills:[
           {
             logo: 'fa-brands fa-react',
@@ -134,7 +134,7 @@ export const initialState = {
       {
         name: "Terminal Game",
         image: imageTerminalGame,
-        // description: "Petit jeu sur un site effet 'terminal' pour montrer mes compétences sur du Javascript vanilla, en utilisant les modèles, lien vers le répo github et ici vers le site",
+        lien: "https://idris-bnd.github.io/TerminalGame/",
         skills:[
           {
             logo: 'fa-brands fa-html5',
@@ -159,7 +159,7 @@ export const initialState = {
       {
         name: "Blog",
         image: imageBlog,
-        // description: "Blog / journal où je donne mon avis sur des sujets divers et variés, pour ce site j'ai utilisé react, avec ses hooks, props, validation de props et également du scss/sass, lien vers le répo github et ici vers le site.",
+        lien: "https://blogjournal.web.app/",
         skills:[
           {
             logo: 'fa-brands fa-react',

@@ -29,6 +29,10 @@ function Navigation() {
             <li>
                 <a href="#Contact">Contact</a>
             </li>
+            <li className='socialNetworks'>
+                <a href="https://github.com/Idris-bnd">GitHub</a>
+                <a href="https://www.linkedin.com/in/idris-ben-ahmed-61773023a/">Linkedin</a>
+            </li>
         </ul>
     </div>
  )
