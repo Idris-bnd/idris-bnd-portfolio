@@ -1,5 +1,8 @@
 import { SET_NAV } from "../actions/action";
-
+import imageBlog from '../assets/images/BlogJournal_000.jpg';
+import imageChoose from '../assets/images/Choose_000.jpg';
+import imageDanceRiser from '../assets/images/DanceRiser_000.jpg';
+import imageTerminalGame from '../assets/images/TerminalGame_000.jpg';
 // import {
 
 // } from "../actions/api";
@@ -61,7 +64,8 @@ export const initialState = {
     ProjectsList:[
       {
         name: "Dance Riser",
-        description: "En tant que lead Développeur Front-end, dans une équipe de 4 personne, on à créer un site qui permet de mettre en relation des professeur(e)s d'écoles de dance et leurs élèves. Pour ce faire on à utiliser React, Redux, Sass et des API REST pour communiquer avec le back qui est en symfony, twig et mySQL.",
+        image: imageDanceRiser,
+        // description: "En tant que lead Développeur Front-end, dans une équipe de 4 personne, on à créer un site qui permet de mettre en relation des professeur(e)s d'écoles de dance et leurs élèves. Pour ce faire on à utiliser React, Redux, Sass et des API REST pour communiquer avec le back qui est en symfony, twig et mySQL.",
         skills:[
           {
             logo: 'fa-brands fa-react',
@@ -91,7 +95,8 @@ export const initialState = {
       },
       {
         name: "Mon Portfolio",
-        description: "Vous êtes justement dessus ;), il a été réalisé en React Redux, et Sass. Je prévoie prochainement de faire un back en Node js afin d'appeler mes projets en API REST et de rendre ce site 100% dynamique",
+        image: "https://resize-parismatch.lanmedia.fr/var/pm/public/media/image/2022/07/12/18/en-photos-la-nasa-devoile-de-nouvelles-images-exceptionnelles-de-james-webb.jpg?VersionId=If5aBJcsJjgugzl0hwYEM9o3DmNzTuU7",
+        // description: "Vous êtes justement dessus ;), il a été réalisé en React Redux, et Sass. Je prévoie prochainement de faire un back en Node js afin d'appeler mes projets en API REST et de rendre ce site 100% dynamique",
         skills:[
           {
             logo: 'fa-brands fa-react',
@@ -109,7 +114,8 @@ export const initialState = {
       },
       {
         name: "Choose",
-        description: "Site pour générer des couleurs aléatoirement, pour ce site j'ai utilisé react avec ses props et ses validations et du scss/sass également. le repo est ici et le site ici!",
+        image: imageChoose,
+        // description: "Site pour générer des couleurs aléatoirement, pour ce site j'ai utilisé react avec ses props et ses validations et du scss/sass également. le repo est ici et le site ici!",
         skills:[
           {
             logo: 'fa-brands fa-react',
@@ -127,7 +133,8 @@ export const initialState = {
       },
       {
         name: "Terminal Game",
-        description: "Petit jeu sur un site effet 'terminal' pour montrer mes compétences sur du Javascript vanilla, en utilisant les modèles, lien vers le répo github et ici vers le site",
+        image: imageTerminalGame,
+        // description: "Petit jeu sur un site effet 'terminal' pour montrer mes compétences sur du Javascript vanilla, en utilisant les modèles, lien vers le répo github et ici vers le site",
         skills:[
           {
             logo: 'fa-brands fa-html5',
@@ -151,7 +158,8 @@ export const initialState = {
       },
       {
         name: "Blog",
-        description: "Blog / journal où je donne mon avis sur des sujets divers et variés, pour ce site j'ai utilisé react, avec ses hooks, props, validation de props et également du scss/sass, lien vers le répo github et ici vers le site.",
+        image: imageBlog,
+        // description: "Blog / journal où je donne mon avis sur des sujets divers et variés, pour ce site j'ai utilisé react, avec ses hooks, props, validation de props et également du scss/sass, lien vers le répo github et ici vers le site.",
         skills:[
           {
             logo: 'fa-brands fa-react',

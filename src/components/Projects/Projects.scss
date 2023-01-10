@@ -1,5 +1,7 @@
 .Projects{
     margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
 
     h2{
         color: #231F20;
@@ -8,5 +10,13 @@
         font-weight: 100;
         letter-spacing: 2px;
         font-size: 3vw;
+        text-decoration: underline;
+    }
+
+    .ProjectDiv{
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
     }
 }

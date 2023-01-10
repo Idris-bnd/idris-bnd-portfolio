@@ -2,48 +2,33 @@ import React from 'react';
 import './Project.scss';
 
 
-function Project({ title, imageLink, skillsList, description }) {
+function Project({ image, title, skillsList }) {
 
 
   return(
     <section className='Project'>
+        <img src={image} alt={"image de mon projet:" + title} />
 
-        <h3>{title}</h3>
+        <div className="Skills">
+            <h3>Compétences sur ce projet</h3>
+            <h3 className='ProjectTitle'>{title}</h3>
 
-        <div className="Project--Informations">
-            <div className="leftSide">
-                <img src={imageLink} />
-            </div>
+            {skillsList.map((skill) => (
+                <div key={skill.name} className="skillDiv">
 
-            <div className="rightSide">
+                    <i style={{ color: skill.color}} className={skill.logo}></i>
+                    <p>{skill.name}</p>
 
-                <div className="rightSide--top">
-                    <h3>Compétences utilisées sur ce projet</h3>
-
-                    {skillsList.map((skill) => (
-                        <div key={skill.name} className="skillDiv">
-
-                            <i style={{ color: skill.color}} className={skill.logo}></i>
-                            <p>{skill.name}</p>
-
-                            <div className="percentageDiv">
-                                <div
-                                    style={{
-                                        width:skill.percentage+"%",
-                                        backgroundColor: skill.color
-                                    }}
-                                    className="percent"
-                                />
-                            </div>
-                        </div>
-                    ))}
+                    <div className="percentageDiv">
+                        <div
+                            style={{
+                                width:skill.percentage+"%",
+                                backgroundColor: skill.color
+                            }}
+                            className="percent" />
+                    </div>
                 </div>
-
-                <div className="rightSide--bottom">
-                    <p>{description}</p>
-                </div>
-
-            </div>
+            ))}
         </div>
 
     </section>

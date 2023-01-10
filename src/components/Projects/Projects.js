@@ -13,15 +13,17 @@ function Projects() {
     <div id='Projects' className='Projects'>
        <h2>Projects</h2>
 
-        {ProjectsList.map((project) => (
-            <Project
-                key={project.name}
-                title={project.name}
-                skillsList={project.skills}
-                description={project.description}
-            />
-        )
-        )}
+        <div className="ProjectDiv">
+            {ProjectsList.map((project) => (
+                <Project
+                    key={project.name}
+                    title={project.name}
+                    skillsList={project.skills}
+                    description={project.description}
+                    image={project.image}
+                />
+            ))}
+        </div>
        
     </div>
  )
