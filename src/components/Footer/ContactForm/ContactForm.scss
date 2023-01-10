@@ -38,6 +38,10 @@
             &.false{
                 display: block;
             }
+            &.send{
+                color: #2aca15;
+                display: block;
+            }
         }
 
         textarea{
@@ -76,5 +80,19 @@
         border: none;
         outline: none;
         cursor: pointer;
+    }
+
+    &.loading{
+
+        input, textarea{
+            color: #c0526a;
+            background-color: rgb(204, 204, 204);
+            cursor: progress;
+        }
+
+        button{
+            background-color: #c0526a;
+            cursor: progress;
+        }
     }
 }

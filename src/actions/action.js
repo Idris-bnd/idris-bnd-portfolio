@@ -27,3 +27,8 @@ export const makeFormInputsTrue = (name) => ({
   type: MAKE_FORM_INPUTS_TRUE,
   name: name
 });
+
+export const SET_LOADING_ON_FORM = 'SET_LOADING_ON_FORM';
+export const setLoadingOnForm = () => ({
+  type: SET_LOADING_ON_FORM,
+});

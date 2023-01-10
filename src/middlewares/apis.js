@@ -1,10 +1,24 @@
 import { SEND_MAIL } from "../actions/api";
 import emailjs from "@emailjs/browser";
-import { makeFormInputsError, makeFormInputsTrue, resetFormInputs } from "../actions/action";
+import { makeFormInputsError, makeFormInputsTrue, resetFormInputs, setLoadingOnForm } from "../actions/action";
 
 const apis = (store) => (next) => (action) => {
   switch (action.type) {
     case SEND_MAIL:{
+      store.dispatch(setLoadingOnForm());
+      store.dispatch(makeFormInputsTrue("notSend"));
+      if (
+        !process.env.REACT_APP_SERVICE_ID ||
+        !process.env.REACT_APP_SERVICE_ID ||
+        !process.env.REACT_APP_SERVICE_ID
+        ) {
+          setTimeout(() => {
+            store.dispatch(makeFormInputsError("notSend"));
+            store.dispatch(setLoadingOnForm())
+            next(action);
+          }, 2000)
+      }
+
       emailjs.send(
         process.env.REACT_APP_SERVICE_ID,
         process.env.REACT_APP_TEMPLATE_ID,
@@ -21,9 +35,18 @@ const apis = (store) => (next) => (action) => {
         store.dispatch(resetFormInputs())
         store.dispatch(makeFormInputsTrue("champs"));
         store.dispatch(makeFormInputsTrue("notSend"));
+        store.dispatch(makeFormInputsTrue("send"));
+
+        setTimeout(() => {
+          store.dispatch(makeFormInputsError("send"));
+
+        }, 5000)
       })
       .catch(() => {
         store.dispatch(makeFormInputsError("notSend"));
+      })
+      .finally(() => {
+        store.dispatch(setLoadingOnForm())
       })
       next(action);
   break;

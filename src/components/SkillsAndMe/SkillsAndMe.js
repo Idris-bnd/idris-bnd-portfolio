@@ -17,7 +17,7 @@ function SkillsAndMe() {
            </div>
 
            <div className="leftSide--bottom">
-               <h3>My Skills</h3>
+               <h3>Mes compétences</h3>
 
                {skillsList.map((skill) => (
                    <div key={skill.name} className="skillDiv">

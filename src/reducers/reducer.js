@@ -1,4 +1,4 @@
-import { CHANGE_FORM_INPUTS, MAKE_FORM_INPUTS_ERROR, MAKE_FORM_INPUTS_TRUE, RESET_FORM_INPUTS, SET_NAV } from "../actions/action";
+import { CHANGE_FORM_INPUTS, MAKE_FORM_INPUTS_ERROR, MAKE_FORM_INPUTS_TRUE, RESET_FORM_INPUTS, SET_LOADING_ON_FORM, SET_NAV } from "../actions/action";
 import imageBlog from '../assets/images/BlogJournal_000.jpg';
 import imageChoose from '../assets/images/Choose_000.jpg';
 import imageDanceRiser from '../assets/images/DanceRiser_000.jpg';
@@ -10,6 +10,7 @@ import imageTerminalGame from '../assets/images/TerminalGame_000.jpg';
 export const initialState = {
     webSiteThings: {
       navOpen: false,
+      cursorLoading: false,
       contactForm:{
         firstName: true,
         lastName: true,
@@ -18,26 +19,15 @@ export const initialState = {
         msgContent: true,
         champs: true,
         notSend: true,
+        send: false,
       }
     },
     skillslist: [
       {
-        logo: 'fa-brands fa-react',
-        percentage: 90,
-        name: 'React',
-        color: "#61DBFB",
-      },
-      {
-        logo: 'fa-brands fa-square-js',
-        percentage: 85,
-        name: 'Javascript',
-        color: "#F0DB4F",
-      },
-      {
-        logo: 'fa-brands fa-node-js',
-        percentage: 60,
-        name: 'Nodejs',
-        color: "#68A063",
+        logo: 'fa-solid fa-arrow-right-arrow-left',
+        percentage: 100,
+        name: 'API',
+        color: "#98124E",
       },
       {
         logo: 'fa-brands fa-html5',
@@ -52,10 +42,16 @@ export const initialState = {
         color: "#CD6799",
       },
       {
-        logo: 'fa-solid fa-arrow-right-arrow-left',
-        percentage: 100,
-        name: 'API',
-        color: "#98124E",
+        logo: 'fa-brands fa-react',
+        percentage: 90,
+        name: 'React',
+        color: "#61DBFB",
+      },
+      {
+        logo: 'fa-brands fa-square-js',
+        percentage: 85,
+        name: 'Javascript',
+        color: "#F0DB4F",
       },
       {
         logo: 'fa-brands fa-square-github',
@@ -68,6 +64,12 @@ export const initialState = {
         percentage: 70,
         name: 'mySQL',
         color: "#0F1A20",
+      },
+      {
+        logo: 'fa-brands fa-node-js',
+        percentage: 70,
+        name: 'Nodejs',
+        color: "#68A063",
       },
     ],
     ProjectsList:[
@@ -243,6 +245,14 @@ const reducer = (state = initialState, action = {}) => {
                 ...state.webSiteThings.contactForm,
                 [action.name]: true,
               }
+            }
+          };
+      case SET_LOADING_ON_FORM:
+          return{
+            ...state,
+            webSiteThings:{
+              ...state.webSiteThings,
+              cursorLoading: !state.webSiteThings.cursorLoading
             }
           };
 
