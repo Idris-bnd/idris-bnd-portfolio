@@ -28,6 +28,18 @@
             color: #C21C40;
         }
 
+        p{
+            color: #C21C40;
+            font-size: 1vw;
+            margin: 0;
+            display: none;
+            font-weight: normal;
+
+            &.false{
+                display: block;
+            }
+        }
+
         textarea{
             border-radius: 10px;
             height: 8rem;

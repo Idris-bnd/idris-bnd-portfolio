@@ -1,5 +1,6 @@
 import { SEND_MAIL } from "../actions/api";
 import emailjs from "@emailjs/browser";
+import { makeFormInputsError, makeFormInputsTrue, resetFormInputs } from "../actions/action";
 
 const apis = (store) => (next) => (action) => {
   switch (action.type) {
@@ -16,11 +17,13 @@ const apis = (store) => (next) => (action) => {
         },
         process.env.REACT_APP_CLE_API
       )
-      .then((res) => {
-          console.log('envoyé');
+      .then(() => {
+        store.dispatch(resetFormInputs())
+        store.dispatch(makeFormInputsTrue("champs"));
+        store.dispatch(makeFormInputsTrue("notSend"));
       })
-      .catch((err) => {
-          console.error('mail pas envoyé');
+      .catch(() => {
+        store.dispatch(makeFormInputsError("notSend"));
       })
       next(action);
   break;
