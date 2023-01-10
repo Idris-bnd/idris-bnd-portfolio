@@ -1,0 +1,55 @@
+.Footer{
+    width: 100%;
+    margin-top: 10vh;
+    background-color: #2E304A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 5vh;
+
+    h2{
+        color: #FFFFFF;
+        font-family: 'Contrail One', cursive;
+        font-weight: 800;
+        letter-spacing: 1px;
+        font-size: 3vw;
+        margin-top: 2vh;
+    }
+
+    h4{
+        color: #FFFFFF;
+        background-color: #C21C40;
+        padding: 10px 15px;
+        font-family: 'Contrail One', cursive;
+        font-weight: 800;
+        font-style: italic;
+        letter-spacing: 1px;
+        font-size: 1.5vw;
+        margin-top: 3vh;
+    }
+
+    .socialNetworks{
+        margin-top: 5vh;
+        display: flex;
+        gap: 1rem;
+        i{
+            font-size: 2rem;
+            color: #FFFFFF;
+            cursor: pointer;
+            transition: color .2s;
+
+            &:hover{
+                color: #C21C40;
+            }
+        }
+    }
+
+    p{
+        color: #FFFFFF;
+        font-family: 'Contrail One', cursive;
+        font-weight: 800;
+        letter-spacing: 1px;
+        font-size: 1.2vw;
+        margin-top: 3vh;
+    }
+}

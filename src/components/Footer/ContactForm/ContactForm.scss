@@ -1,0 +1,68 @@
+.ContactForm{
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+
+    .inputDiv{
+        display: flex;
+        flex-direction: column;
+        margin-top: 2vh;
+
+        label{
+            color: #FFFFFF;
+            font-family: 'Contrail One', cursive;
+            font-weight: 800;
+            font-style: italic;
+            font-size: 1.2vw;
+            padding-left: 1.5rem;
+        }
+
+        input{
+            border-radius: 10px;
+            height: 1.3rem;
+            font-family: 'Contrail One', cursive;
+            padding-left: 1rem;
+            font-style: none;
+            outline: none;
+            border: none;
+            color: #C21C40;
+        }
+
+        textarea{
+            border-radius: 10px;
+            height: 8rem;
+            font-family: 'Contrail One', cursive;
+            padding: 1rem 0 0 1rem;
+            font-style: none;
+            outline: none;
+            border: none;
+            color: #C21C40;
+            resize: none;
+        }
+    }
+
+    .user{
+        display: flex;
+        justify-content: space-between;
+
+        .inputDiv{
+            width: 45%;
+        }
+    }
+    button{
+        width: 7rem;
+        margin: 2vh auto 0 auto;
+        padding: 10px 15px;
+        color: #FFFFFF;
+        background-color: #C21C40;
+        font-family: 'Contrail One', cursive;
+        font-weight: 800;
+        font-style: italic;
+        letter-spacing: 1px;
+        font-size: 1.2vw;
+        margin-top: 3vh;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+}

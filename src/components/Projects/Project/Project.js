@@ -16,7 +16,7 @@ function Project({ image, title, lien, skillsList }) {
             {skillsList.map((skill) => (
                 <div key={skill.name} className="skillDiv">
 
-                    <i style={{ color: skill.color}} className={skill.logo}></i>
+                    <i style={{ color: skill.color}} className={skill.logo} />
                     <p>{skill.name}</p>
 
                     <div className="percentageDiv">
