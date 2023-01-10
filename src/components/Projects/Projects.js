@@ -9,7 +9,7 @@ function Projects() {
     
   return(
     <div id='Projects' className='Projects'>
-       <h2>Projects</h2>
+       <h2>PROJECTS</h2>
 
         <div className="ProjectDiv">
             {ProjectsList.map((project) => (

@@ -14,7 +14,7 @@
             width: fit-content;
 
             a{
-                color: #231F20;
+                color: #eaebb1;
                 text-decoration: none;
                 transition: color .2s;
 
@@ -23,7 +23,7 @@
                     content: "";
                     width: 0;
                     height: 2px;
-                    background-color: #231F20;
+                    background-color: #eaebb1;
                     transition: width .3s;
                 }
 
@@ -37,9 +37,9 @@
             margin-top: 2rem;
 
             a{
-                color: #a72042;
+                color: #C21C40;
                 &::after{
-                    background-color: #a72042;
+                    background-color: #C21C40;
                 }
             }
         }
@@ -86,7 +86,7 @@
         .menu-btn__burger {
             width: 40px;
             height: 6px;
-            background: #231F20;
+            background: #eaebb1;
             border-radius: 5px;
             transition: all .2s ease-in-out;
         }
@@ -97,7 +97,7 @@
             position: absolute;
             width: 40px;
             height: 6px;
-            background: #231F20;
+            background: #eaebb1;
             border-radius: 5px;
             transition: all .2s ease-in-out;
         }
