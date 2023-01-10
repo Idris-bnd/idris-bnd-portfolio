@@ -7,7 +7,7 @@ function Footer() {
 
 
   return(
-    <div className='Footer'>
+    <div id='Contact' className='Footer'>
         <h2>Thank you !</h2>
 
         <h4>idris.pro83@yahoo.com</h4>

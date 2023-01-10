@@ -1,4 +1,4 @@
-import { SET_NAV } from "../actions/action";
+import { CHANGE_FORM_INPUTS, SET_NAV } from "../actions/action";
 import imageBlog from '../assets/images/BlogJournal_000.jpg';
 import imageChoose from '../assets/images/Choose_000.jpg';
 import imageDanceRiser from '../assets/images/DanceRiser_000.jpg';
@@ -175,7 +175,14 @@ export const initialState = {
           },
         ],
       },
-    ]
+    ],
+    ContactInputs:{
+      firstName: '',
+      lastName: '',
+      email: '',
+      subject: '',
+      msgContent: '',
+    }
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -186,6 +193,14 @@ const reducer = (state = initialState, action = {}) => {
             webSiteThings: {
               ...state.webSiteThings,
               navOpen: !state.webSiteThings.navOpen,
+            }
+          };
+      case CHANGE_FORM_INPUTS:
+          return{
+            ...state,
+            ContactInputs: {
+              ...state.ContactInputs,
+              [action.name]: action.value,
             }
           };
 
