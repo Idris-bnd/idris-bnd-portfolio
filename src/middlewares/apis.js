@@ -1,25 +1,30 @@
-//import axios from 'axios';
+import { SEND_MAIL } from "../actions/api";
+import emailjs from "@emailjs/browser";
 
 const apis = (store) => (next) => (action) => {
   switch (action.type) {
-    // case CALL_SCHOOLS:{
-    //     axios.get(cleAPI+'/schools')
-    //     .then((res) => {
-    //       store.dispatch(saveSchools(res.data))
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //       store.dispatch(makeUndefined('schoolList'));
-    //       window.location.href = 'error404';
-    //     })
-    //     .finally(() => {
-    //       store.dispatch(setLoading('loadingSchools', false))
-    //     })
-    //     next(action);
-    // break;
-    // }
-
-    // fausse action.
+    case SEND_MAIL:{
+        emailjs.send(
+          process.env.REACT_APP_SERVICE_ID,
+          process.env.REACT_APP_TEMPLATE_ID,
+          {
+              firstName: store.getState().reducer.ContactInputs.firstName,
+              lastName: store.getState().reducer.ContactInputs.lastName,
+              email: store.getState().reducer.ContactInputs.email,
+              subject: store.getState().reducer.ContactInputs.subject,
+              content: store.getState().reducer.ContactInputs.msgContent,
+          },
+          process.env.REACT_APP_CLE_API
+        )
+        .then((res) => {
+            console.log('envoyé');
+        })
+        .catch((err) => {
+            console.error('mail pas envoyé');
+        })
+        next(action);
+    break;
+    }
 
     default:
     next(action);

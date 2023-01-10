@@ -1,7 +1,7 @@
-// CALL API HOME
-// export const CALL_HOME = 'CALL_HOME';
-// export const callHome = () => ({
-//   type: CALL_HOME
-// });
+// ENVOIE Email emailjs
+export const SEND_MAIL = 'SEND_MAIL';
+export const sendMail = () => ({
+  type: SEND_MAIL
+});
 
 // fausse action.
