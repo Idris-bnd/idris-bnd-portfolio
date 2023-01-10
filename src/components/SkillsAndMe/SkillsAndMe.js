@@ -5,8 +5,6 @@ import './SkillsAndMe.scss';
 
 function SkillsAndMe() {
     const skillsList = useSelector((state) => state.reducer.skillslist)
-    console.log(skillsList);
-
 
   return(
     <section id='Skills' className='SkillsAndMe'>
