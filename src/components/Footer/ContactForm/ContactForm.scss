@@ -31,7 +31,7 @@
 
         p{
             color: #C21C40;
-            font-size: 1vw;
+            font-size: 1rem;
             margin: 0;
             display: none;
             font-weight: normal;
@@ -67,6 +67,7 @@
             width: 45%;
         }
     }
+
     button{
         width: 7rem;
         margin: 2vh auto 0 auto;
@@ -77,7 +78,7 @@
         font-weight: 800;
         font-style: italic;
         letter-spacing: 1px;
-        font-size: 1.2vw;
+        font-size: 1.2rem;
         margin-top: 3vh;
         border: none;
         outline: none;
@@ -95,6 +96,24 @@
         button{
             background-color: #c0526a;
             cursor: progress;
+        }
+    }
+}
+
+@media screen and (max-width : 400px) {
+    .ContactForm{
+        align-items: center;
+
+        .user{
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            .inputDiv{
+                width: 80%;
+            }
+        }
+        .inputDiv{
+            width: 80%;
         }
     }
 }

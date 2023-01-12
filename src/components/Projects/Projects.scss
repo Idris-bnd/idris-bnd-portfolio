@@ -7,10 +7,12 @@
     h2{
         color: #eaebb1;
         margin-top: 3vh;
+        width: 100%;
+        text-align: center;
         font-family: 'Rowdies', cursive;
         font-weight: 100;
         letter-spacing: 2px;
-        font-size: 3vw;
+        font-size: 3rem;
         text-decoration: underline;
     }
 
@@ -20,5 +22,12 @@
         flex-wrap: wrap;
         gap: 10px;
         margin-top: 5vh;
+    }
+}
+
+
+@media screen and (max-width : 600px) {
+    .Projects{
+        width: 100%;
     }
 }

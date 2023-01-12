@@ -68,8 +68,8 @@
 
     // animation et css du burger
     .menu-btn {
-        width: 40px;
-        height: 40px;
+        width: 2.5rem;
+        height: 2.5rem;
         margin-top: 3vh;
         margin-left: 2vw;
         position: relative;
@@ -80,7 +80,7 @@
         transition: all .2s ease-in-out;
 
         .menu-btn__burger {
-            width: 40px;
+            width: 2.5rem;
             height: 6px;
             background: #eaebb1;
             border-radius: 5px;
@@ -91,7 +91,7 @@
         .menu-btn__burger::after {
             content: '';
             position: absolute;
-            width: 40px;
+            width: 2.5rem;
             height: 6px;
             background: #eaebb1;
             border-radius: 5px;
@@ -120,4 +120,35 @@
     }
     
     
+}
+
+
+@media screen and (max-width : 800px) {
+    .Navigation{
+        z-index: 1000;
+        .navigationsLinks{
+            li{
+                margin-left: -25vw;
+            }
+        }
+    }
+}
+
+@media screen and (max-width : 620px) {
+    .Navigation{
+
+        .menu-btn {
+            width: 2rem;
+
+            .menu-btn__burger {
+                width: 2rem;
+            }
+
+            .menu-btn__burger::before,
+            .menu-btn__burger::after {
+                width: 2rem;
+            }
+
+        }
+    }
 }

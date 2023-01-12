@@ -53,3 +53,13 @@
         margin-top: 3vh;
     }
 }
+
+@media screen and (max-width : 500px) {
+    .Footer{
+
+        p{
+            text-align: center;
+        }
+    }
+}
+

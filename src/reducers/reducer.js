@@ -3,6 +3,7 @@ import imageBlog from '../assets/images/BlogJournal_000.jpg';
 import imageChoose from '../assets/images/Choose_000.jpg';
 import imageDanceRiser from '../assets/images/DanceRiser_000.jpg';
 import imageTerminalGame from '../assets/images/TerminalGame_000.jpg';
+import imagePortfolio from '../assets/images/portfolioImg.PNG';
 // import {
 
 // } from "../actions/api";
@@ -106,7 +107,7 @@ export const initialState = {
       },
       {
         name: "Mon Portfolio",
-        image: "https://resize-parismatch.lanmedia.fr/var/pm/public/media/image/2022/07/12/18/en-photos-la-nasa-devoile-de-nouvelles-images-exceptionnelles-de-james-webb.jpg?VersionId=If5aBJcsJjgugzl0hwYEM9o3DmNzTuU7",
+        image: imagePortfolio,
         lien: "",
         skills:[
           {

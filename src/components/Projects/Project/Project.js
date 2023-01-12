@@ -10,7 +10,7 @@ function Project({ image, title, lien, skillsList }) {
         <img src={image} alt={"image de mon projet:" + title} />
 
         <div className="Skills">
-            <h3>Compétences sur ce projet</h3>
+            <h3>Compétences</h3>
             <h3 className='ProjectTitle'><a href={lien}>{title}</a></h3>
 
             {skillsList.map((skill) => (

@@ -64,7 +64,7 @@
             i{
                 height: 50px;
                 width: 50px;
-                font-size: 3vw;
+                font-size: 3rem;
                 text-align: center;
             }
             p{
@@ -93,5 +93,11 @@
     &:hover .Skills{
         display: block;
         opacity: 100%;
+    }
+}
+
+@media screen and (max-width : 1200px) {
+    .Project{
+        width: 100%;
     }
 }
