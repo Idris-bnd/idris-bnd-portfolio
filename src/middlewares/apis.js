@@ -46,7 +46,7 @@ const apis = (store) => (next) => (action) => {
         store.dispatch(makeFormInputsError("notSend"));
       })
       .finally(() => {
-        store.dispatch(setLoadingOnForm())
+        store.dispatch(setLoadingOnForm());
       })
       next(action);
   break;

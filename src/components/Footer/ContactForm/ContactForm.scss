@@ -13,13 +13,14 @@
             font-family: 'Contrail One', cursive;
             font-weight: 800;
             font-style: italic;
-            font-size: 1.2vw;
+            font-size: 1.2rem;
             padding-left: 1.5rem;
         }
 
         input{
             border-radius: 10px;
             height: 1.3rem;
+            font-size: 1rem;
             font-family: 'Contrail One', cursive;
             padding-left: 1rem;
             font-style: none;
@@ -47,6 +48,7 @@
         textarea{
             border-radius: 10px;
             height: 8rem;
+            font-size: 1rem;
             font-family: 'Contrail One', cursive;
             padding: 1rem 0 0 1rem;
             font-style: none;
