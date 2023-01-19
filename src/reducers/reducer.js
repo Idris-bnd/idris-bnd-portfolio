@@ -5,7 +5,7 @@ import imageDanceRiser from '../assets/images/DanceRiser_000.jpg';
 import imageTerminalGame from '../assets/images/TerminalGame_000.jpg';
 import imagePortfolio from '../assets/images/portfolioImg.PNG';
 import {
-  SAVE_PROJECTS
+  SAVE_PROJECTS, SAVE_SKILLS
 } from "../actions/api";
 
 export const initialState = {
@@ -203,6 +203,11 @@ const reducer = (state = initialState, action = {}) => {
           return {
             ...state,
             ProjectsList: action.data
+          }
+      case SAVE_SKILLS:
+          return {
+            ...state,
+            skillslist: action.data
           }
       case SET_NAV:
           return{

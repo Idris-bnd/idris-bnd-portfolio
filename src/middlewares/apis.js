@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_PROJECTS, SaveProjects, SEND_MAIL } from "../actions/api";
+import { GET_PROJECTS, GET_SKILLS, SaveProjects, SaveSkills, SEND_MAIL } from "../actions/api";
 import emailjs from "@emailjs/browser";
 import { makeFormInputsError, makeFormInputsTrue, resetFormInputs, setLoadingOnForm } from "../actions/action";
 
@@ -58,6 +58,22 @@ const apis = (store) => (next) => (action) => {
       .then((res) => {
         console.log(res.data.data);
         store.dispatch(SaveProjects(res.data.data))
+      })
+      .catch(() => {
+
+      })
+      .finally(() => {
+
+      })
+      next(action);
+  break;
+  }
+    case GET_SKILLS:{
+      console.log('call api');
+      axios.get("http://localhost:3000/api/skills")
+      .then((res) => {
+        console.log(res.data.data);
+        store.dispatch(SaveSkills(res.data.data))
       })
       .catch(() => {
 

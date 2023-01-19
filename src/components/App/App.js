@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProjects } from '../../actions/api';
+import { getProjects, getSkills } from '../../actions/api';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
@@ -15,6 +15,7 @@ function App() {
 
    useEffect(() => {
       dispatch(getProjects())
+      dispatch(getSkills())
    }, [])
   return(
     <div className={`App ${cursorLoading ? 'loading' : ''}`}>

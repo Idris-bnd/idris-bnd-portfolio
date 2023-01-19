@@ -14,3 +14,14 @@ export const SaveProjects = (data) => ({
   type: SAVE_PROJECTS,
   data: data,
 });
+
+export const GET_SKILLS = 'GET_SKILLS';
+export const getSkills = () => ({
+  type: GET_SKILLS
+});
+
+export const SAVE_SKILLS = 'SAVE_SKILLS';
+export const SaveSkills = (data) => ({
+  type: SAVE_SKILLS,
+  data: data,
+});
