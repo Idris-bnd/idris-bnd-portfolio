@@ -43,6 +43,16 @@
                 }
             }
         }
+        .backOffice{
+            
+            
+            a{
+                color: #f521c7;
+                &::after{
+                    background-color: #f521c7;
+                }
+            }
+        }
         
         &.open{
             
@@ -59,6 +69,10 @@
                 transition: margin .8s;
             }
             li:nth-child(4){
+                margin-left: 3vw;
+                transition: margin 1.2s;
+            }
+            li:nth-child(5){
                 margin-left: 3vw;
                 transition: margin 1.2s;
             }

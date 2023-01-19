@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeFormInputs, makeFormInputsError, makeFormInputsTrue } from '../../../actions/action';
-import { sendMail } from '../../../actions/api';
+import { changeFormInputs, makeFormInputsError, makeFormInputsTrue } from '../../../../actions/action';
+import { sendMail } from '../../../../actions/api';
 import './ContactForm.scss';
 
 
@@ -76,7 +76,7 @@ function ContactForm() {
 
         <div className="inputDiv">
             <label htmlFor="msgContent">Message</label>
-            <textarea onChange={handleChange} name="msgContent" placeholder="Hello Idris, tu nous intéresse beaucoup donc nous te proposons cette magnifique offre d'emploi" value={values.msgContent} disabled={cursorLoading && true } />
+            <textarea onChange={handleChange} name="msgContent" placeholder="Hello Idris, tu nous intéresse beaucoup donc nous te proposons cette magnifique offre d'emploi :)" value={values.msgContent} disabled={cursorLoading && true } />
             <p className={contactBool.msgContent ? "" : "false"}>seulement les lettres de A à Z sont autorisés</p>
             <p className={contactBool.champs ? "" : "false"}>Veuillez remplir tout les champs avant d'envoyer le formulaire S.V.P</p>
             <p className={contactBool.notSend ? "" : "false"}>L'email n'as pas aboutit, veuillez re essayer ou directement me contacter via l'email ci-dessus.</p>

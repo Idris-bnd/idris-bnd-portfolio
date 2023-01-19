@@ -1,4 +1,4 @@
-import { CHANGE_FORM_INPUTS, MAKE_FORM_INPUTS_ERROR, MAKE_FORM_INPUTS_TRUE, RESET_FORM_INPUTS, SET_LOADING_ON_FORM, SET_NAV } from "../actions/action";
+import { CHANGE_FORM_INPUTS, CHANGE_LOGIN_INPUTS, LOGIN, LOGOUT, makeLoginInputsTrue, MAKE_FORM_INPUTS_ERROR, MAKE_FORM_INPUTS_TRUE, MAKE_LOGIN_INPUTS_ERROR, MAKE_LOGIN_INPUTS_TRUE, RESET_FORM_INPUTS, RESET_LOGIN_INPUTS, SEND_LOGIN_FORM, SET_LOADING_FALSE, SET_LOADING_ON_FORM, SET_NAV } from "../actions/action";
 import imageBlog from '../assets/images/BlogJournal_000.jpg';
 import imageChoose from '../assets/images/Choose_000.jpg';
 import imageDanceRiser from '../assets/images/DanceRiser_000.jpg';
@@ -7,8 +7,12 @@ import imagePortfolio from '../assets/images/portfolioImg.PNG';
 import {
   SAVE_PROJECTS, SAVE_SKILLS
 } from "../actions/api";
+import { useDispatch } from "react-redux";
 
 export const initialState = {
+    user: {
+      name: null
+    },
     webSiteThings: {
       navOpen: false,
       cursorLoading: false,
@@ -21,7 +25,14 @@ export const initialState = {
         champs: true,
         notSend: true,
         send: false,
-      }
+      },
+      loginForm:{
+        email: true,
+        pwd: true,
+        champs: true,
+        notSend: true,
+        send: false,
+      },
     },
     skillslist: [],
     ProjectsList:[],
@@ -31,7 +42,12 @@ export const initialState = {
       email: '',
       subject: '',
       msgContent: '',
-    }
+    },
+    LoginInputs:{
+      email: '',
+      pwd: '',
+      remember: false,
+    },
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -103,6 +119,99 @@ const reducer = (state = initialState, action = {}) => {
               cursorLoading: !state.webSiteThings.cursorLoading
             }
           };
+      case SET_LOADING_FALSE:
+          return{
+            ...state,
+            webSiteThings:{
+              ...state.webSiteThings,
+              cursorLoading: false,
+            }
+          };
+
+          // ------LOGIN
+          
+      case LOGIN:
+        return{
+          ...state,
+          user: {
+            ...state.user,
+            name: action.data.name,
+          }
+        };
+      case LOGOUT:
+        return{
+          ...state,
+          user: {
+            ...state.user,
+            name: null,
+          }
+        };
+      case CHANGE_LOGIN_INPUTS:
+        return{
+          ...state,
+          LoginInputs: {
+            ...state.LoginInputs,
+            [action.name]: action.value,
+          }
+        };
+      case RESET_LOGIN_INPUTS:
+          return{
+            ...state,
+            LoginInputs:{
+              email: '',
+              pwd: '',
+            }
+          };
+
+      case SEND_LOGIN_FORM:
+        localStorage.setItem('user', JSON.stringify({
+          name: "idris",
+          time: Date.now() + 50*60*1000
+        }))
+
+          return{
+            ...state,
+            user:{
+              ...state.user,
+              name: 'Idris'
+            },
+            webSiteThings:{
+              ...state.webSiteThings,
+              loginForm: {
+                ...state.webSiteThings.loginForm,
+                email: true,
+                pwd: true,
+                champs: true,
+                notSend: true,
+                send: true,
+              }
+            }
+          };
+      case MAKE_LOGIN_INPUTS_ERROR:
+          return{
+            ...state,
+            webSiteThings:{
+              ...state.webSiteThings,
+              loginForm: {
+                ...state.webSiteThings.loginForm,
+                [action.name]: false,
+              }
+            }
+          };
+      case MAKE_LOGIN_INPUTS_TRUE:
+          return{
+            ...state,
+            webSiteThings:{
+              ...state.webSiteThings,
+              loginForm: {
+                ...state.webSiteThings.loginForm,
+                [action.name]: true,
+              }
+            }
+          };
+
+          // ------LOGIN
+
 
     default:
       return state;

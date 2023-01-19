@@ -1,31 +1,44 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProjects, getSkills } from '../../actions/api';
-import Footer from '../Footer/Footer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { login, logout } from '../../actions/action';
+import BackendHome from '../BackOffice/BackendHome/BackendHome';
 import Header from '../Header/Header';
-import Navigation from '../Navigation/Navigation';
-import Projects from '../Projects/Projects';
-import SkillsAndMe from '../SkillsAndMe/SkillsAndMe';
+import Home from '../FrontOffice/Home/Home';
+import Login from '../BackOffice/Login/Login';
 import './App.scss';
 
 
 function App() {
-   const dispatch = useDispatch();
    const cursorLoading = useSelector((state) => state.reducer.webSiteThings.cursorLoading);
-
+   const dispatch = useDispatch()
    useEffect(() => {
-      dispatch(getProjects())
-      dispatch(getSkills())
-   }, [])
+      if (localStorage.getItem('user')) {
+         const user = JSON.parse(localStorage.getItem('user'))
+         dispatch(login(user))
+
+         
+         if (Date.now() > user.time) {
+            dispatch(logout())
+            localStorage.removeItem('user')
+         }
+     }
+   })
+
   return(
     <div className={`App ${cursorLoading ? 'loading' : ''}`}>
-       <Header />
 
-       <SkillsAndMe />
+       <BrowserRouter>
+         <Header />
+            <Routes>
 
-       <Projects />
+               <Route path="/" element={<Home />} />
+               <Route path="/back/login" element={<Login />} />
+               <Route path="/back" element={<BackendHome />} />
 
-       <Footer />
+            </Routes>
+       </BrowserRouter>
+
     </div>
  )
 }

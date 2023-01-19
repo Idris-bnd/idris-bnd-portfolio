@@ -4,6 +4,7 @@ export const setNav = () => ({
   type: SET_NAV,
 });
 
+// Email
 export const CHANGE_FORM_INPUTS = 'CHANGE_FORM_INPUTS';
 export const changeFormInputs = (name, value) => ({
   type: CHANGE_FORM_INPUTS,
@@ -31,4 +32,49 @@ export const makeFormInputsTrue = (name) => ({
 export const SET_LOADING_ON_FORM = 'SET_LOADING_ON_FORM';
 export const setLoadingOnForm = () => ({
   type: SET_LOADING_ON_FORM,
+});
+
+export const SET_LOADING_FALSE = 'SET_LOADING_FALSE';
+export const setLoadingFalse = () => ({
+  type: SET_LOADING_FALSE,
+});
+
+// Login / Logout
+export const CHANGE_LOGIN_INPUTS = 'CHANGE_LOGIN_INPUTS';
+export const changeLoginInputs = (name, value) => ({
+  type: CHANGE_LOGIN_INPUTS,
+  name: name,
+  value: value
+});
+
+export const SEND_LOGIN_FORM = 'SEND_LOGIN_FORM';
+export const SendLoginForm = () => ({
+  type: SEND_LOGIN_FORM,
+});
+
+export const RESET_LOGIN_INPUTS = 'RESET_LOGIN_INPUTS';
+export const resetLoginInputs = () => ({
+  type: RESET_LOGIN_INPUTS,
+});
+export const MAKE_LOGIN_INPUTS_ERROR = 'MAKE_LOGIN_INPUTS_ERROR';
+export const makeLoginInputsError = (name) => ({
+  type: MAKE_LOGIN_INPUTS_ERROR,
+  name: name
+});
+
+export const MAKE_LOGIN_INPUTS_TRUE = 'MAKE_LOGIN_INPUTS_TRUE';
+export const makeLoginInputsTrue = (name) => ({
+  type: MAKE_LOGIN_INPUTS_TRUE,
+  name: name
+});
+
+export const LOGIN = 'LOGIN';
+export const login = (data) => ({
+  type: LOGIN,
+  data: data,
+});
+
+export const LOGOUT = 'LOGOUT';
+export const logout = () => ({
+  type: LOGOUT,
 });
