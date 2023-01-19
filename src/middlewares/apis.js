@@ -2,6 +2,7 @@ import axios from 'axios';
 import { GET_PROJECTS, GET_SKILLS, SaveProjects, SaveSkills, SEND_MAIL } from "../actions/api";
 import emailjs from "@emailjs/browser";
 import { makeFormInputsError, makeFormInputsTrue, resetFormInputs, setLoadingOnForm } from "../actions/action";
+const URL = process.env.REACT_APP_API_URL
 
 const apis = (store) => (next) => (action) => {
   switch (action.type) {
@@ -54,7 +55,7 @@ const apis = (store) => (next) => (action) => {
   }
     case GET_PROJECTS:{
       console.log('call api');
-      axios.get("http://localhost:3000/api/projects")
+      axios.get(URL + "/projects")
       .then((res) => {
         console.log(res.data.data);
         store.dispatch(SaveProjects(res.data.data))
@@ -70,7 +71,7 @@ const apis = (store) => (next) => (action) => {
   }
     case GET_SKILLS:{
       console.log('call api');
-      axios.get("http://localhost:3000/api/skills")
+      axios.get(URL + "/skills")
       .then((res) => {
         console.log(res.data.data);
         store.dispatch(SaveSkills(res.data.data))
