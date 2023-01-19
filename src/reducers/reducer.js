@@ -4,9 +4,9 @@ import imageChoose from '../assets/images/Choose_000.jpg';
 import imageDanceRiser from '../assets/images/DanceRiser_000.jpg';
 import imageTerminalGame from '../assets/images/TerminalGame_000.jpg';
 import imagePortfolio from '../assets/images/portfolioImg.PNG';
-// import {
-
-// } from "../actions/api";
+import {
+  SAVE_PROJECTS
+} from "../actions/api";
 
 export const initialState = {
     webSiteThings: {
@@ -199,6 +199,11 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+      case SAVE_PROJECTS:
+          return {
+            ...state,
+            ProjectsList: action.data
+          }
       case SET_NAV:
           return{
             ...state,

@@ -1,4 +1,5 @@
-import { SEND_MAIL } from "../actions/api";
+import axios from 'axios';
+import { GET_PROJECTS, SaveProjects, SEND_MAIL } from "../actions/api";
 import emailjs from "@emailjs/browser";
 import { makeFormInputsError, makeFormInputsTrue, resetFormInputs, setLoadingOnForm } from "../actions/action";
 
@@ -47,6 +48,22 @@ const apis = (store) => (next) => (action) => {
       })
       .finally(() => {
         store.dispatch(setLoadingOnForm());
+      })
+      next(action);
+  break;
+  }
+    case GET_PROJECTS:{
+      console.log('call api');
+      axios.get("http://localhost:3000/api/projects")
+      .then((res) => {
+        console.log(res.data.data);
+        store.dispatch(SaveProjects(res.data.data))
+      })
+      .catch(() => {
+
+      })
+      .finally(() => {
+
       })
       next(action);
   break;
