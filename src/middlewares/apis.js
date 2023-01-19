@@ -41,7 +41,6 @@ const apis = (store) => (next) => (action) => {
 
         setTimeout(() => {
           store.dispatch(makeFormInputsError("send"));
-
         }, 5000)
       })
       .catch(() => {
@@ -54,10 +53,8 @@ const apis = (store) => (next) => (action) => {
   break;
   }
     case GET_PROJECTS:{
-      console.log('call api');
       axios.get(URL + "/projects")
       .then((res) => {
-        console.log(res.data.data);
         store.dispatch(SaveProjects(res.data.data))
       })
       .catch(() => {
@@ -70,10 +67,8 @@ const apis = (store) => (next) => (action) => {
   break;
   }
     case GET_SKILLS:{
-      console.log('call api');
       axios.get(URL + "/skills")
       .then((res) => {
-        console.log(res.data.data);
         store.dispatch(SaveSkills(res.data.data))
       })
       .catch(() => {

@@ -17,7 +17,6 @@ function App() {
          const user = JSON.parse(localStorage.getItem('user'))
          dispatch(login(user))
 
-         
          if (Date.now() > user.time) {
             dispatch(logout())
             localStorage.removeItem('user')

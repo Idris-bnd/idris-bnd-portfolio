@@ -1,0 +1,147 @@
+.BackendHome{
+
+
+    .Projects{
+        display: flex; 
+        flex-direction: column;
+
+        h1{
+            color: #eaebb1;
+            width: fit-content;
+            text-align: center;
+            font-family: 'Rowdies', cursive;
+            font-weight: 100;
+            letter-spacing: 2px;
+            font-size: 3rem;
+            text-decoration: underline;
+        }
+
+        .ProjectList{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0 3rem;
+            
+            h2{
+            color: #eaebb1;
+            margin-top: 3vh;
+            width: fit-content;
+            text-align: center;
+            font-family: 'Rowdies', cursive;
+            font-weight: 100;
+            letter-spacing: 2px;
+            font-size: 2.5rem;
+            text-decoration: none;
+            }
+            
+            h4{
+                color: #C21C40;
+                width: fit-content;
+                text-align: center;
+                font-family: 'Rowdies', cursive;
+                font-weight: 100;
+                letter-spacing: 2px;
+                font-size: 1.5rem;
+            }
+            
+            .ProjectDiv{
+                display: flex;
+                flex-direction: column;
+                
+                ul{
+                    list-style: none;
+                    li{
+                        color: #eaebb1;
+                        font-family: 'Contrail One', cursive;
+                        font-size: 1.2rem;
+                    }
+                }
+
+                .icons{
+                    display: flex;
+                    align-items: center;
+                    gap: .5rem;
+                    i{
+                        font-size: 1.5rem;
+                        color: #C21C40;
+                        cursor: pointer;
+                        &.delete{
+                        font-size: 2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .Skills{
+        width: 50vw;
+        padding-bottom: 10vh;
+        
+        h2{
+            color: #eaebb1;
+            margin-top: 3vh;
+            width: fit-content;
+            text-align: center;
+            font-family: 'Rowdies', cursive;
+            font-weight: 100;
+            letter-spacing: 2px;
+            font-size: 3rem;
+            text-decoration: underline;
+        }
+        
+        .warning{
+            color: #C21C40;
+            font-size: 1.2rem;
+            font-family: 'Contrail One', cursive;
+            margin: 0;
+            font-weight: normal;
+            margin-bottom: 5vh;
+        }
+
+        .skillDiv{
+            display: flex;
+            align-items: center;
+            margin-top: 1.5vh;
+            
+            i{
+                height: 50px;
+                width: 50px;
+                font-size: 3rem;
+                text-align: center;
+
+                &.delete{
+                    cursor: pointer;
+                    font-size: 2.5rem;
+                }
+                &.update{
+                    cursor: pointer;
+                    font-size: 2.3rem;
+                }
+            }
+            p{
+                margin-left: 1vw;
+            }
+            
+            .percentageDiv{
+                position: relative;
+                height: 2vh;
+                width: 60%;
+                background-color: rgb(255, 255, 255);
+                border-radius: 4px;
+                margin-left: 1vw;
+                margin-right: 2vw;
+                .percent{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-color: #000;
+                    height: 100%;
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+
+
+}

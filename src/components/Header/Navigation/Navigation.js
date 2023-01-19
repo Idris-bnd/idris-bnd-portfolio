@@ -9,7 +9,6 @@ function Navigation() {
     const dispatch = useDispatch();
     const navOpen = useSelector((state) => state.reducer.webSiteThings.navOpen)
     const user = useSelector((state) => state.reducer.user.name)
-    console.log(user);
 
     const handleClickNav = () => {
         dispatch(setNav());
