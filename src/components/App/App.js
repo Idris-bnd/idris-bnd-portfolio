@@ -11,6 +11,7 @@ import UpdateProject from '../BackOffice/UpdateProject/UpdateProject';
 import CreateProject from '../BackOffice/CreateProject/CreateProject';
 import UpdateSkill from '../BackOffice/UpdateSkill/UpdateSkill';
 import CreateSkill from '../BackOffice/CreateSkill/CreateSkill';
+import LoadingPage from '../LoadingPage/LoadingPage';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
 
        <BrowserRouter>
          <Header />
+         <LoadingPage />
             <Routes>
 
                <Route path="/" element={<Home />} />

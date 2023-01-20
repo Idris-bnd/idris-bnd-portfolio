@@ -1,0 +1,61 @@
+.LoadingPage{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #0a0a0a;
+    color: #eaebb1;
+    z-index: 1000;
+    transition: top .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ul{
+        list-style: none;
+        display: flex;
+
+        li{
+            font-size: 4rem;
+            font-weight: 500;
+            transition: color .1s;
+            animation: changeColor 2s infinite;
+
+            &:nth-child(2){
+                animation-delay: .3s;
+            }
+            &:nth-child(3){
+                animation-delay: .6s;
+            }
+            &:nth-child(4){
+                animation-delay: .9s;
+            }
+            &:nth-child(5){
+                animation-delay: 1.2s;
+            }
+            &:nth-child(6){
+                animation-delay: 1.5s;
+            }
+            &:nth-child(7){
+                animation-delay: 1.8s;
+            }
+        }
+
+    }
+
+    &.none{
+        top: -100vh;
+    }
+}
+
+@keyframes changeColor {
+    0%{
+
+    }
+    50%{
+        color: #C21C40;
+    }
+    100%{
+    }
+}
