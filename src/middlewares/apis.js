@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_PROJECTS, GET_SKILLS, SaveProjects, SaveSkills, SEND_MAIL } from "../actions/api";
+import { GET_ONE_PROJECT, GET_PROJECTS, GET_SKILLS, SaveOneProject, SaveProjects, SaveSkills, SEND_MAIL, SEND_ONE_PROJECT, UPDATE_ONE_PROJECT } from "../actions/api";
 import emailjs from "@emailjs/browser";
 import { makeFormInputsError, makeFormInputsTrue, resetFormInputs, setLoadingOnForm } from "../actions/action";
 const URL = process.env.REACT_APP_API_URL
@@ -66,9 +66,52 @@ const apis = (store) => (next) => (action) => {
       next(action);
   break;
   }
+    case GET_ONE_PROJECT:{
+      axios.get(URL + "/projects/"+action.id)
+      .then((res) => {
+        console.log(res.data.data);
+        store.dispatch(SaveOneProject(res.data.data))
+      })
+      .catch(() => {
+
+      })
+      .finally(() => {
+
+      })
+      next(action);
+  break;
+  }
     case GET_SKILLS:{
       axios.get(URL + "/skills")
       .then((res) => {
+        store.dispatch(SaveSkills(res.data.data))
+      })
+      .catch(() => {
+
+      })
+      .finally(() => {
+
+      })
+      next(action);
+  break;
+  }
+    case UPDATE_ONE_PROJECT:{
+      console.log({
+        name: action.data.name,
+        image: action.data.image,
+        lien: action.data.lien,
+        skills: action.data.skills,
+      });
+      axios.put(URL + "/projects/"+ action.id,
+      {
+        name: action.data.name,
+        image: action.data.image,
+        lien: action.data.lien,
+        skills: action.data.skills,
+      }
+      )
+      .then((res) => {
+        console.log(res.data);
         store.dispatch(SaveSkills(res.data.data))
       })
       .catch(() => {

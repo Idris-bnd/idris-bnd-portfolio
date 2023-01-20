@@ -5,6 +5,13 @@ import imageDanceRiser from '../assets/images/DanceRiser_000.jpg';
 import imageTerminalGame from '../assets/images/TerminalGame_000.jpg';
 import imagePortfolio from '../assets/images/portfolioImg.PNG';
 import {
+  ADD_PROJECT_SKILL,
+  CHANGE_FORM_PROJECT_INPUTS,
+  CHANGE_FORM_PROJECT_SKILLS_INPUTS,
+  CHANGE_FORM_SKILL_INPUTS,
+  DELETE_PROJECT_SKILL,
+  SAVE_ONE_PROJECT,
+  SAVE_ONE_SKILL,
   SAVE_PROJECTS, SAVE_SKILLS
 } from "../actions/api";
 import { useDispatch } from "react-redux";
@@ -36,6 +43,18 @@ export const initialState = {
     },
     skillslist: [],
     ProjectsList:[],
+    Project:{
+      name: '',
+      image: '',
+      lien: '',
+      skills: [],
+    },
+    Skill:{
+      name: '',
+      logo: '',
+      color: '',
+      percentage: null,
+    },
     ContactInputs:{
       firstName: '',
       lastName: '',
@@ -52,16 +71,6 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-      case SAVE_PROJECTS:
-          return {
-            ...state,
-            ProjectsList: action.data
-          }
-      case SAVE_SKILLS:
-          return {
-            ...state,
-            skillslist: action.data
-          }
       case SET_NAV:
           return{
             ...state,
@@ -127,9 +136,61 @@ const reducer = (state = initialState, action = {}) => {
               cursorLoading: false,
             }
           };
-
-          // ------LOGIN
-          
+      case CHANGE_FORM_PROJECT_INPUTS:
+          return{
+            ...state,
+            Project:{
+              ...state.Project,
+              [action.name]: action.value,
+            }
+          };
+      case CHANGE_FORM_SKILL_INPUTS:
+          return{
+            ...state,
+            Skill:{
+              ...state.Skill,
+              [action.name]: action.value,
+            }
+          };
+      case CHANGE_FORM_PROJECT_SKILLS_INPUTS:
+        const skills = "skills";
+          return{
+            ...state,
+            Project:{
+              ...state.Project,
+              [skills[action.index]]: {
+                ...state.Project.skills[action.index],
+                [action.name]: action.value,
+              },
+            }
+          };
+      case ADD_PROJECT_SKILL:
+        return{
+        ...state,
+        Project: {
+            ...state.Project,
+            skills: [
+                ...state.Project.skills,
+                {
+                    name:'',
+                    logo: '',
+                    color: '',
+                    percentage: '',
+                    active:true,
+                    xMark: true,
+                },
+            ]
+         }
+        };    
+      case DELETE_PROJECT_SKILL:
+        return{
+          ...state,
+          Project: {
+              ...state.Project,
+              skills: action.array
+           }
+          };    
+        // ------LOGIN
       case LOGIN:
         return{
           ...state,
@@ -162,7 +223,6 @@ const reducer = (state = initialState, action = {}) => {
               pwd: '',
             }
           };
-
       case SEND_LOGIN_FORM:
         localStorage.setItem('user', JSON.stringify({
           name: "idris",
@@ -209,8 +269,50 @@ const reducer = (state = initialState, action = {}) => {
               }
             }
           };
-
           // ------LOGIN
+
+          // ------APIS
+      case SAVE_PROJECTS:
+        return {
+          ...state,
+          ProjectsList: action.data
+        };
+      case SAVE_SKILLS:
+          return {
+            ...state,
+            skillslist: action.data
+          };
+      case SAVE_ONE_PROJECT:
+        action.data.skills = action.data.skills.map((skill) => {
+          return {
+            name: skill.name,
+            color: skill.color,
+            logo: skill.logo,
+            percentage: skill.percentage,
+            active: true,
+            xmark: true,
+          }
+        })
+          return {
+            ...state,
+            Project: {
+              name: action.data.name,
+              image: action.data.image,
+              lien: action.data.lien,
+              skills: action.data.skills,
+            }
+          };
+      case SAVE_ONE_SKILL:
+          return {
+            ...state,
+            Skill: action.data
+          };
+          // ------APIS
+
+
+
+          
+
 
 
     default:

@@ -29,17 +29,19 @@ function BackendHome() {
     <section className='BackendHome'>
 
         <div className="Projects">
-            <h1>Mes projets</h1>
+            <h2>Mes projets</h2>
+            <p className='warning'>(attention! Cliquer sur une croix supprimeras immédiatement un skill)</p>
+
             <div className="ProjectList">
 
                 {ProjectsList.map((Project) => (
                     <div key={Project.id} className="ProjectDiv">
-                        <h2>{Project.name}</h2>
+                        <h3>{Project.name}</h3>
 
                         <h4>Skills du projet</h4>
                         <ul>
                             {Project.skills.map((skill) => (
-                                <li>{skill.name} à {skill.percentage}%</li>
+                                <li style={{ color: skill.color}} key={skill.name}>{skill.name} à {skill.percentage}%</li>
                                 ))}
                         </ul>
 
@@ -57,7 +59,7 @@ function BackendHome() {
         <div className="Skills">
 
             <h2>Mes skills</h2>
-            <p className='warning'>(attention! Cliquer sur une des croix supprimeras immédiatement un skill)</p>
+            <p className='warning'>(attention! Cliquer sur une croix supprimeras immédiatement un skill)</p>
             {skillsList.map((skill) => (
                 <div key={skill.id} className="skillDiv">
 

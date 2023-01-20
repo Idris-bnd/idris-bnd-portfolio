@@ -1,11 +1,18 @@
 .BackendHome{
 
+    .warning{
+        color: #ff073d;
+        font-size: 1.2rem;
+        font-family: 'Contrail One', cursive;
+        margin: 0;
+        font-weight: normal;
+    }
 
     .Projects{
         display: flex; 
         flex-direction: column;
 
-        h1{
+        h2{
             color: #eaebb1;
             width: fit-content;
             text-align: center;
@@ -22,7 +29,7 @@
             justify-content: center;
             gap: 0 3rem;
             
-            h2{
+            h3{
             color: #eaebb1;
             margin-top: 3vh;
             width: fit-content;
@@ -35,7 +42,7 @@
             }
             
             h4{
-                color: #C21C40;
+                color: #eaebb1;
                 width: fit-content;
                 text-align: center;
                 font-family: 'Rowdies', cursive;
@@ -63,7 +70,7 @@
                     gap: .5rem;
                     i{
                         font-size: 1.5rem;
-                        color: #C21C40;
+                        color: #eaebb1;
                         cursor: pointer;
                         &.delete{
                         font-size: 2rem;
@@ -88,15 +95,6 @@
             letter-spacing: 2px;
             font-size: 3rem;
             text-decoration: underline;
-        }
-        
-        .warning{
-            color: #C21C40;
-            font-size: 1.2rem;
-            font-family: 'Contrail One', cursive;
-            margin: 0;
-            font-weight: normal;
-            margin-bottom: 5vh;
         }
 
         .skillDiv{
