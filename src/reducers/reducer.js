@@ -71,14 +71,19 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+
+          // ------GENERAL
       case SET_NAV:
-          return{
-            ...state,
-            webSiteThings: {
-              ...state.webSiteThings,
-              navOpen: !state.webSiteThings.navOpen,
-            }
-          };
+      return{
+        ...state,
+        webSiteThings: {
+          ...state.webSiteThings,
+          navOpen: !state.webSiteThings.navOpen,
+        }
+      };
+          // ------GENERAL
+
+          // ------FRONT-OFFICE
       case CHANGE_FORM_INPUTS:
           return{
             ...state,
@@ -136,6 +141,9 @@ const reducer = (state = initialState, action = {}) => {
               cursorLoading: false,
             }
           };
+          // ------FRONT-OFFICE
+
+          // ------BACK-OFFICE
       case CHANGE_FORM_PROJECT_INPUTS:
           return{
             ...state,
@@ -176,8 +184,6 @@ const reducer = (state = initialState, action = {}) => {
                     logo: '',
                     color: '',
                     percentage: '',
-                    active:true,
-                    xMark: true,
                 },
             ]
          }
@@ -190,7 +196,9 @@ const reducer = (state = initialState, action = {}) => {
               skills: action.array
            }
           };    
-        // ------LOGIN
+          // ------BACK-OFFICE
+        
+          // ------LOGIN
       case LOGIN:
         return{
           ...state,

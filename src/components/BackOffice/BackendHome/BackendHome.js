@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getProjects, getSkills } from '../../../actions/api';
+import { DeleteOneProject, getProjects, getSkills } from '../../../actions/api';
 import './BackendHome.scss';
 
 
@@ -12,9 +12,6 @@ function BackendHome() {
     const skillsList = useSelector((state) => state.reducer.skillslist);
     console.log(ProjectsList);
 
-    function getRandomInt(max) {
-        return Math.floor(Math.random() * max);
-      }
     useEffect(() => {
         if (!localStorage.getItem('user')) {
             navigate('/')
@@ -25,6 +22,9 @@ function BackendHome() {
         !skillsList[0] && dispatch(getSkills());
     }, [])
 
+    const handleDeleteProject = (e) => {
+        dispatch(DeleteOneProject(e.target.id))
+    }
   return(
     <section className='BackendHome'>
 
@@ -49,7 +49,7 @@ function BackendHome() {
                             <a href={"/back/update/"+Project.id}>
                                 <i className="fa-solid fa-pen-to-square update" />
                             </a>
-                            <i className="fa-solid fa-xmark delete" />
+                            <i onClick={handleDeleteProject} id={Project.id} className="fa-solid fa-xmark delete" />
                         </div>
                     </div>
                 ))}

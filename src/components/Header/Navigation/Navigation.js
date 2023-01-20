@@ -33,8 +33,8 @@ function Navigation() {
             {user && (
                 <li className='backOffice'>
                     <Link to="/back">BackOffice</Link>
-                    <Link to="/back/project/add">Add Project</Link>
-                    <Link to="/back/skill/add">Add Skill</Link>
+                    <Link to="/back/create/project">Add Project</Link>
+                    <Link to="/back/create/project">Add Skill</Link>
                 </li>
             )}
 

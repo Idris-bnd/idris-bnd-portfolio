@@ -8,6 +8,7 @@ import Home from '../FrontOffice/Home/Home';
 import Login from '../BackOffice/Login/Login';
 import './App.scss';
 import UpdateProject from '../BackOffice/UpdateProject/UpdateProject';
+import CreateProject from '../BackOffice/CreateProject/CreateProject';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
                <Route path="/back/login" element={<Login />} />
                <Route path="/back" element={<BackendHome />} />
                <Route path="/back/update/:id" element={<UpdateProject />} />
+               <Route path="/back/create/project" element={<CreateProject />} />
 
             </Routes>
        </BrowserRouter>

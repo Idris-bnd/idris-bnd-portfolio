@@ -1,0 +1,156 @@
+.CreateProject{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10vh;
+
+    h4{
+        margin: 0 auto;
+        color: #FFFFFF;
+        background-color: #C21C40;
+        padding: 10px 15px;
+        font-family: 'Contrail One', cursive;
+        font-weight: 800;
+        font-style: italic;
+        letter-spacing: 1px;
+        font-size: 1.5rem;
+        margin-top: 3vh;
+        text-align: center;
+        width: fit-content;
+    }
+
+    form{
+        width: 40%;
+
+        .AddSkill{
+            width: fit-content;
+            padding: 10px 15px;
+            color: #FFFFFF;
+            background-color: #C21C40;
+            font-family: 'Contrail One', cursive;
+            font-weight: 800;
+            font-style: italic;
+            letter-spacing: 1px;
+            font-size: 1rem;
+            margin-top: .5rem;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transition: background-color .2s;
+
+            &:hover{
+                background-color: #ca4a66;
+            }
+        }
+
+        h5{
+            margin: 0 auto;
+            color: #FFFFFF;
+            background-color: #C21C40;
+            padding: 10px 15px;
+            font-family: 'Contrail One', cursive;
+            font-weight: 800;
+            font-style: italic;
+            letter-spacing: 1px;
+            font-size: 1.2rem;
+            margin-top: 3vh;
+            text-align: center;
+            width: fit-content;
+        }
+
+        .inputDiv{
+            display: flex;
+            flex-direction: column;
+            margin-top: 2vh;
+
+            
+            label{
+                color: #eaebb1;
+                font-family: 'Contrail One', cursive;
+                font-weight: 800;
+                font-style: italic;
+                font-size: 1.2rem;
+                padding-left: 1.5rem;
+                margin-top: .3rem;
+
+                i{
+                    font-size: 1.5rem;
+                    &.logo{
+                        margin-right: 1rem;
+                    }
+
+                    &.xmark{
+                        color: #C21C40;
+                        margin-left: 1rem;
+                        font-size: 1.5rem;
+                        cursor: pointer;
+                    }
+                }
+            }
+            
+            input{
+                border-radius: 10px;
+                height: 1.3rem;
+                font-size: 1rem;
+                font-family: 'Contrail One', cursive;
+                padding-left: 1rem;
+                font-style: none;
+                outline: none;
+                border: none;
+                color: #C21C40;
+            }
+            
+            p{
+                color: #C21C40;
+                font-size: 1rem;
+                margin: 0;
+                display: none;
+                font-weight: normal;
+                
+                &.false{
+                    display: block;
+                }
+                &.send{
+                    color: #2aca15;
+                    display: block;
+                }
+            }
+            
+            textarea{
+                border-radius: 10px;
+                height: 8rem;
+                font-size: 1rem;
+                font-family: 'Contrail One', cursive;
+                padding: 1rem 0 0 1rem;
+                font-style: none;
+                outline: none;
+                border: none;
+                color: #C21C40;
+                resize: none;
+            }
+        }
+
+        .buttonDiv{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            button{
+                width: 7rem;
+                margin: 2vh auto 0 auto;
+                padding: 10px 15px;
+                color: #FFFFFF;
+                background-color: #C21C40;
+                font-family: 'Contrail One', cursive;
+                font-weight: 800;
+                font-style: italic;
+                letter-spacing: 1px;
+                font-size: 1.2rem;
+                margin-top: 3vh;
+                border: none;
+                outline: none;
+                cursor: pointer;
+            }
+        }
+    }
+}

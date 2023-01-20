@@ -1,24 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { AddProjectSkill, changeFormProjectInputs, changeFormProjectSkillsInputs, deleteProjectSkill, getOneProject, UpdateOneProject } from '../../../actions/api';
-import './UpdateProject.scss';
+import { AddProjectSkill, changeFormProjectInputs, changeFormProjectSkillsInputs, CreateOneProject, deleteProjectSkill, getOneProject, UpdateOneProject } from '../../../actions/api';
+import './CreateProject.scss';
 
 
-function UpdateProject() {
+function CreateProject() {
     const dispatch = useDispatch();
-    const { id } = useParams();
     const Project = useSelector((state) => state.reducer.Project);
     const cursorLoading = useSelector((state) => state.reducer.webSiteThings.cursorLoading);
     console.log(Project);
-    useEffect(() => {
-        dispatch(getOneProject(id));
-    }, []);
-
     const handleSubmit = (e) => {
         e.preventDefault()
-        
-        dispatch(UpdateOneProject(id, Project))
+        dispatch(CreateOneProject());
     };
 
     const handleChange = (e) => {
@@ -30,22 +23,18 @@ function UpdateProject() {
         const object = Project.skills[e.target.id];
         switch(e.target.name){
             case 'skillName':{
-                console.log('hey');
                 object.name = e.target.value;
             }
             break;
             case 'skillClass':{
-                console.log('hey');
                 object.logo = e.target.value;
             }
             break;
             case 'skillColor':{
-                console.log('hey');
                 object.color = e.target.value;
             }
             break;
             case 'skillPercentage':{
-                console.log('hey');
                 object.percentage = e.target.value;
             }
             break;
@@ -70,7 +59,7 @@ function UpdateProject() {
      };
 
   return(
-    <section className='UpdateProject'>
+    <section className='CreateProject'>
 
         <h4>Modifier le projet: {Project.name}</h4>
 
@@ -131,4 +120,4 @@ function UpdateProject() {
     </section>
  )
 }
-export default UpdateProject;
+export default CreateProject;
