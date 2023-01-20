@@ -9,6 +9,8 @@ import Login from '../BackOffice/Login/Login';
 import './App.scss';
 import UpdateProject from '../BackOffice/UpdateProject/UpdateProject';
 import CreateProject from '../BackOffice/CreateProject/CreateProject';
+import UpdateSkill from '../BackOffice/UpdateSkill/UpdateSkill';
+import CreateSkill from '../BackOffice/CreateSkill/CreateSkill';
 
 
 function App() {
@@ -36,8 +38,10 @@ function App() {
                <Route path="/" element={<Home />} />
                <Route path="/back/login" element={<Login />} />
                <Route path="/back" element={<BackendHome />} />
-               <Route path="/back/update/:id" element={<UpdateProject />} />
+               <Route path="/back/update/project/:id" element={<UpdateProject />} />
                <Route path="/back/create/project" element={<CreateProject />} />
+               <Route path="/back/update/skill/:id" element={<UpdateSkill />} />
+               <Route path="/back/create/skill" element={<CreateSkill />} />
 
             </Routes>
        </BrowserRouter>

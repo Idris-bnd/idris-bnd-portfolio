@@ -11,6 +11,7 @@
     .Projects{
         display: flex; 
         flex-direction: column;
+        
 
         h2{
             color: #eaebb1;
@@ -26,7 +27,7 @@
         .ProjectList{
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 0 3rem;
             
             h3{

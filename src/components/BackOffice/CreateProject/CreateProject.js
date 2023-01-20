@@ -8,7 +8,7 @@ function CreateProject() {
     const dispatch = useDispatch();
     const Project = useSelector((state) => state.reducer.Project);
     const cursorLoading = useSelector((state) => state.reducer.webSiteThings.cursorLoading);
-    console.log(Project);
+
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(CreateOneProject());

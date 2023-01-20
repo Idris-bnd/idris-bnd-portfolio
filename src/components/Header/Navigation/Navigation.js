@@ -34,7 +34,7 @@ function Navigation() {
                 <li className='backOffice'>
                     <Link to="/back">BackOffice</Link>
                     <Link to="/back/create/project">Add Project</Link>
-                    <Link to="/back/create/project">Add Skill</Link>
+                    <Link to="/back/create/skill">Add Skill</Link>
                 </li>
             )}
 

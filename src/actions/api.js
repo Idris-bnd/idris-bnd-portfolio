@@ -81,6 +81,22 @@ export const getOneSkill = (id) => ({
   type: GET_ONE_SKILL,
   id: id,
 });
+export const CREATE_ONE_SKILL = 'CREATE_ONE_SKILL';
+export const createOneSkill = (data) => ({
+  type: CREATE_ONE_SKILL,
+  data: data,
+});
+export const UPDATE_ONE_SKILL = 'UPDATE_ONE_SKILL';
+export const UpdateOneSkill = (id, data) => ({
+  type: UPDATE_ONE_SKILL,
+  id: id,
+  data: data,
+});
+export const DELETE_ONE_SKILL = 'DELETE_ONE_SKILL';
+export const DeleteOneSkill = (id) => ({
+  type: DELETE_ONE_SKILL,
+  id: id,
+});
 export const SAVE_ONE_SKILL = 'SAVE_ONE_SKILL';
 export const SaveOneSkill = (data) => ({
   type: SAVE_ONE_SKILL,

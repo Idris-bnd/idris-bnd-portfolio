@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CREATE_ONE_PROJECT, DELETE_ONE_PROJECT, GET_ONE_PROJECT, GET_PROJECTS, GET_SKILLS, SaveOneProject, SaveProjects, SaveSkills, SEND_MAIL, SEND_ONE_PROJECT, UPDATE_ONE_PROJECT } from "../actions/api";
+import { CREATE_ONE_PROJECT, CREATE_ONE_SKILL, DELETE_ONE_PROJECT, DELETE_ONE_SKILL, GET_ONE_PROJECT, GET_ONE_SKILL, GET_PROJECTS, GET_SKILLS, SaveOneProject, SaveOneSkill, SaveProjects, SaveSkills, SEND_MAIL, UPDATE_ONE_PROJECT, UPDATE_ONE_SKILL } from "../actions/api";
 import emailjs from "@emailjs/browser";
 import { makeFormInputsError, makeFormInputsTrue, resetFormInputs, setLoadingOnForm } from "../actions/action";
 const URL = process.env.REACT_APP_API_URL
@@ -51,7 +51,7 @@ const apis = (store) => (next) => (action) => {
       })
       next(action);
   break;
-  }
+  };
     case GET_PROJECTS:{
       axios.get(URL + "/projects")
       .then((res) => {
@@ -65,7 +65,7 @@ const apis = (store) => (next) => (action) => {
       })
       next(action);
   break;
-  }
+  };
     case GET_ONE_PROJECT:{
       axios.get(URL + "/projects/"+action.id)
       .then((res) => {
@@ -80,28 +80,8 @@ const apis = (store) => (next) => (action) => {
       })
       next(action);
   break;
-  }
-    case GET_SKILLS:{
-      axios.get(URL + "/skills")
-      .then((res) => {
-        store.dispatch(SaveSkills(res.data.data))
-      })
-      .catch(() => {
-
-      })
-      .finally(() => {
-
-      })
-      next(action);
-  break;
-  }
+  };
     case UPDATE_ONE_PROJECT:{
-      console.log({
-        name: action.data.name,
-        image: action.data.image,
-        lien: action.data.lien,
-        skills: action.data.skills,
-      });
       axios.put(URL + "/projects/"+ action.id,
       {
         name: action.data.name,
@@ -123,7 +103,7 @@ const apis = (store) => (next) => (action) => {
       })
       next(action);
   break;
-  }
+  };
     case CREATE_ONE_PROJECT:{
       console.log(store.getState().reducer.Project);
       axios.post(URL + "/projects",
@@ -141,7 +121,7 @@ const apis = (store) => (next) => (action) => {
       })
       next(action);
   break;
-  }
+  };
     case DELETE_ONE_PROJECT:{
       axios.delete(URL + "/projects/" + action.id)
       .then((res) => {
@@ -156,10 +136,96 @@ const apis = (store) => (next) => (action) => {
       })
       next(action);
   break;
-  }
+  };
+    case GET_SKILLS:{
+        axios.get(URL + "/skills")
+        .then((res) => {
+          store.dispatch(SaveSkills(res.data.data))
+        })
+        .catch(() => {
 
+        })
+        .finally(() => {
 
-    default:
+        })
+        next(action);
+    break;
+    };
+    case GET_ONE_SKILL:{
+      axios.get(URL + "/skills/"+ action.id)
+      .then((res) => {
+        store.dispatch(SaveOneSkill(res.data.data))
+      })
+      .catch(() => {
+
+      })
+      .finally(() => {
+
+      })
+      next(action);
+  break;
+  };
+    case UPDATE_ONE_SKILL:{
+      axios.put(URL + "/skills/"+ action.id,
+      {
+        name: store.getState().reducer.Skill.name,
+        logo: store.getState().reducer.Skill.logo,
+        color: store.getState().reducer.Skill.color,
+        percentage: store.getState().reducer.Skill.percentage,
+      }
+      )
+      .then((res) => {
+        console.log(res.data);
+        window.location.href = "/back";
+      })
+      .catch(() => {
+
+      })
+      .finally(() => {
+
+      })
+      next(action);
+  break;
+  };
+    case CREATE_ONE_SKILL:{
+      axios.post(URL + "/skills/",
+      {
+        name: store.getState().reducer.Skill.name,
+        logo: store.getState().reducer.Skill.logo,
+        color: store.getState().reducer.Skill.color,
+        percentage: store.getState().reducer.Skill.percentage,
+      }
+      )
+      .then((res) => {
+        console.log(res.data);
+        store.dispatch(SaveSkills(res.data.data))
+        window.location.href = "/back";
+      })
+      .catch(() => {
+
+      })
+      .finally(() => {
+
+      })
+      next(action);
+  break;
+  };
+    case DELETE_ONE_SKILL:{
+      axios.delete(URL + "/skills/" + action.id)
+      .then((res) => {
+        console.log(res.data);
+        // store.dispatch(SaveProjects(res.data.data.newProjectsArray))
+      })
+      .catch(() => {
+
+      })
+      .finally(() => {
+
+      })
+      next(action);
+  break;
+  };
+  default:
     next(action);
     break;
   }

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { DeleteOneProject, getProjects, getSkills } from '../../../actions/api';
+import { DeleteOneProject, DeleteOneSkill, getProjects, getSkills } from '../../../actions/api';
 import './BackendHome.scss';
 
 
@@ -25,12 +25,16 @@ function BackendHome() {
     const handleDeleteProject = (e) => {
         dispatch(DeleteOneProject(e.target.id))
     }
+    const handleDeleteSkill = (e) => {
+        dispatch(DeleteOneSkill(e.target.id))
+    }
+
   return(
     <section className='BackendHome'>
 
         <div className="Projects">
             <h2>Mes projets</h2>
-            <p className='warning'>(attention! Cliquer sur une croix supprimeras immédiatement un skill)</p>
+            <p className='warning'>(attention! Cliquer sur une croix supprimeras immédiatement un projet de la BDD)</p>
 
             <div className="ProjectList">
 
@@ -46,7 +50,7 @@ function BackendHome() {
                         </ul>
 
                         <div className="icons">
-                            <a href={"/back/update/"+Project.id}>
+                            <a href={"/back/update/project/"+Project.id}>
                                 <i className="fa-solid fa-pen-to-square update" />
                             </a>
                             <i onClick={handleDeleteProject} id={Project.id} className="fa-solid fa-xmark delete" />
@@ -59,12 +63,12 @@ function BackendHome() {
         <div className="Skills">
 
             <h2>Mes skills</h2>
-            <p className='warning'>(attention! Cliquer sur une croix supprimeras immédiatement un skill)</p>
+            <p className='warning'>(attention! Cliquer sur une croix supprimeras immédiatement un skill de la BDD)</p>
             {skillsList.map((skill) => (
                 <div key={skill.id} className="skillDiv">
 
                     <i style={{ color: skill.color}} className={skill.logo} />
-                    <p>{skill.name}</p>
+                    <p style={{ color: skill.color}}>{skill.name}</p>
 
                     <div className="percentageDiv">
                         <div
@@ -75,10 +79,10 @@ function BackendHome() {
                             className="percent" />
                     </div>
 
-                    <a href={"/back/update/"+skill.id}>
+                    <a href={"/back/update/skill/"+skill.id}>
                         <i style={{ color: skill.color}} className="fa-solid fa-pen-to-square update" />
                     </a>
-                    <i style={{ color: skill.color}} className="fa-solid fa-xmark delete" />
+                    <i onClick={handleDeleteSkill} id={skill.id} style={{ color: skill.color}} className="fa-solid fa-xmark delete" />
                 </div>
             ))}
         </div>

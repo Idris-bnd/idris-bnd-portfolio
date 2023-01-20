@@ -1,9 +1,9 @@
 import { CHANGE_FORM_INPUTS, CHANGE_LOGIN_INPUTS, LOGIN, LOGOUT, makeLoginInputsTrue, MAKE_FORM_INPUTS_ERROR, MAKE_FORM_INPUTS_TRUE, MAKE_LOGIN_INPUTS_ERROR, MAKE_LOGIN_INPUTS_TRUE, RESET_FORM_INPUTS, RESET_LOGIN_INPUTS, SEND_LOGIN_FORM, SET_LOADING_FALSE, SET_LOADING_ON_FORM, SET_NAV } from "../actions/action";
-import imageBlog from '../assets/images/BlogJournal_000.jpg';
-import imageChoose from '../assets/images/Choose_000.jpg';
-import imageDanceRiser from '../assets/images/DanceRiser_000.jpg';
-import imageTerminalGame from '../assets/images/TerminalGame_000.jpg';
-import imagePortfolio from '../assets/images/portfolioImg.PNG';
+// import imageBlog from '../assets/images/BlogJournal_000.jpg';
+// import imageChoose from '../assets/images/Choose_000.jpg';
+// import imageDanceRiser from '../assets/images/DanceRiser_000.jpg';
+// import imageTerminalGame from '../assets/images/TerminalGame_000.jpg';
+// import imagePortfolio from '../assets/images/portfolioImg.PNG';
 import {
   ADD_PROJECT_SKILL,
   CHANGE_FORM_PROJECT_INPUTS,
@@ -14,7 +14,6 @@ import {
   SAVE_ONE_SKILL,
   SAVE_PROJECTS, SAVE_SKILLS
 } from "../actions/api";
-import { useDispatch } from "react-redux";
 
 export const initialState = {
     user: {
@@ -53,7 +52,7 @@ export const initialState = {
       name: '',
       logo: '',
       color: '',
-      percentage: null,
+      percentage: '',
     },
     ContactInputs:{
       firstName: '',
@@ -152,14 +151,6 @@ const reducer = (state = initialState, action = {}) => {
               [action.name]: action.value,
             }
           };
-      case CHANGE_FORM_SKILL_INPUTS:
-          return{
-            ...state,
-            Skill:{
-              ...state.Skill,
-              [action.name]: action.value,
-            }
-          };
       case CHANGE_FORM_PROJECT_SKILLS_INPUTS:
         const skills = "skills";
           return{
@@ -195,6 +186,14 @@ const reducer = (state = initialState, action = {}) => {
               ...state.Project,
               skills: action.array
            }
+          };    
+      case CHANGE_FORM_SKILL_INPUTS:
+          return{
+            ...state,
+            Skill:{
+              ...state.Skill,
+              [action.name]: action.value,
+            }
           };    
           // ------BACK-OFFICE
         
@@ -314,14 +313,8 @@ const reducer = (state = initialState, action = {}) => {
           return {
             ...state,
             Skill: action.data
-          };
+          };     
           // ------APIS
-
-
-
-          
-
-
 
     default:
       return state;
