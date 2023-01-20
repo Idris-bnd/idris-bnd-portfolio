@@ -1,4 +1,4 @@
-import { CHANGE_FORM_INPUTS, CHANGE_LOGIN_INPUTS, LOGIN, LOGOUT, makeLoginInputsTrue, MAKE_FORM_INPUTS_ERROR, MAKE_FORM_INPUTS_TRUE, MAKE_LOGIN_INPUTS_ERROR, MAKE_LOGIN_INPUTS_TRUE, RESET_FORM_INPUTS, RESET_LOGIN_INPUTS, SEND_LOGIN_FORM, SET_LOADING_FALSE, SET_LOADING_ON_FORM, SET_NAV } from "../actions/action";
+import { CHANGE_FORM_INPUTS, CHANGE_LOGIN_INPUTS, LOGIN, LOGOUT, makeLoginInputsTrue, MAKE_FORM_INPUTS_ERROR, MAKE_FORM_INPUTS_TRUE, MAKE_LOGIN_INPUTS_ERROR, MAKE_LOGIN_INPUTS_TRUE, REMOVE_LOADER, RESET_FORM_INPUTS, RESET_LOGIN_INPUTS, SEND_LOGIN_FORM, SET_LOADER, SET_LOADING_FALSE, SET_LOADING_ON_FORM, SET_NAV } from "../actions/action";
 // import imageBlog from '../assets/images/BlogJournal_000.jpg';
 // import imageChoose from '../assets/images/Choose_000.jpg';
 // import imageDanceRiser from '../assets/images/DanceRiser_000.jpg';
@@ -22,6 +22,7 @@ export const initialState = {
     webSiteThings: {
       navOpen: false,
       cursorLoading: false,
+      loader: true,
       contactForm:{
         firstName: true,
         lastName: true,
@@ -78,6 +79,22 @@ const reducer = (state = initialState, action = {}) => {
         webSiteThings: {
           ...state.webSiteThings,
           navOpen: !state.webSiteThings.navOpen,
+        }
+      };
+      case SET_LOADER:
+      return{
+        ...state,
+        webSiteThings: {
+          ...state.webSiteThings,
+          loader: true,
+        }
+      };
+      case REMOVE_LOADER:
+      return{
+        ...state,
+        webSiteThings: {
+          ...state.webSiteThings,
+          loader: false,
         }
       };
           // ------GENERAL

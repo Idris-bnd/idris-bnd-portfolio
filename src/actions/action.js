@@ -4,6 +4,18 @@ export const setNav = () => ({
   type: SET_NAV,
 });
 
+// enlève le loader.
+export const SET_LOADER = 'SET_LOADER';
+export const SetLoader = () => ({
+  type: SET_LOADER,
+});
+
+// enlève le loader.
+export const REMOVE_LOADER = 'REMOVE_LOADER';
+export const RemoveLoader = () => ({
+  type: REMOVE_LOADER,
+});
+
 // Email
 export const CHANGE_FORM_INPUTS = 'CHANGE_FORM_INPUTS';
 export const changeFormInputs = (name, value) => ({

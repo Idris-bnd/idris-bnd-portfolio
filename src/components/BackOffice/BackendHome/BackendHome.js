@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { RemoveLoader } from '../../../actions/action';
 import { DeleteOneProject, DeleteOneSkill, getProjects, getSkills } from '../../../actions/api';
 import './BackendHome.scss';
 
@@ -10,7 +11,10 @@ function BackendHome() {
     const dispatch = useDispatch()
     const ProjectsList = useSelector((state) => state.reducer.ProjectsList);
     const skillsList = useSelector((state) => state.reducer.skillslist);
-    console.log(ProjectsList);
+
+    useEffect(() => {
+        skillsList[0] && ProjectsList[0] && dispatch(RemoveLoader())
+    }, [skillsList, ProjectsList])
 
     useEffect(() => {
         if (!localStorage.getItem('user')) {

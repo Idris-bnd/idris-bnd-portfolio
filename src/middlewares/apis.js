@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { CREATE_ONE_PROJECT, CREATE_ONE_SKILL, DELETE_ONE_PROJECT, DELETE_ONE_SKILL, GET_ONE_PROJECT, GET_ONE_SKILL, GET_PROJECTS, GET_SKILLS, SaveOneProject, SaveOneSkill, SaveProjects, SaveSkills, SEND_MAIL, UPDATE_ONE_PROJECT, UPDATE_ONE_SKILL } from "../actions/api";
 import emailjs from "@emailjs/browser";
-import { makeFormInputsError, makeFormInputsTrue, resetFormInputs, setLoadingOnForm } from "../actions/action";
+import { makeFormInputsError, makeFormInputsTrue, RemoveLoader, resetFormInputs, setLoadingOnForm } from "../actions/action";
 const URL = process.env.REACT_APP_API_URL
 
 const apis = (store) => (next) => (action) => {
@@ -61,7 +61,6 @@ const apis = (store) => (next) => (action) => {
 
       })
       .finally(() => {
-
       })
       next(action);
   break;
@@ -76,7 +75,7 @@ const apis = (store) => (next) => (action) => {
 
       })
       .finally(() => {
-
+        store.dispatch(RemoveLoader());
       })
       next(action);
   break;
@@ -99,7 +98,6 @@ const apis = (store) => (next) => (action) => {
 
       })
       .finally(() => {
-
       })
       next(action);
   break;
@@ -117,7 +115,6 @@ const apis = (store) => (next) => (action) => {
 
       })
       .finally(() => {
-
       })
       next(action);
   break;
@@ -146,7 +143,6 @@ const apis = (store) => (next) => (action) => {
 
         })
         .finally(() => {
-
         })
         next(action);
     break;
@@ -160,7 +156,7 @@ const apis = (store) => (next) => (action) => {
 
       })
       .finally(() => {
-
+        store.dispatch(RemoveLoader());
       })
       next(action);
   break;

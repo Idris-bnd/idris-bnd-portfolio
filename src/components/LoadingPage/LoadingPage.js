@@ -1,11 +1,13 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import './LoadingPage.scss';
 
 
 function LoadingPage() {
+    const loading = useSelector((state) => state.reducer.webSiteThings.loader)
 
   return(
-    <section className='LoadingPage'>
+    <section className={`LoadingPage ${!loading && 'none'}`}>
        <ul>
            <li>L</li>
            <li>O</li>
