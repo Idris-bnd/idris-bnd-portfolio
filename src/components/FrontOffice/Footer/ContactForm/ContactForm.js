@@ -14,23 +14,43 @@ function ContactForm() {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        for (const value in values) {
-            const element = values[value];
-            if (element.length > 0) {
-                if (value !== "email") {
-                    if (!element.match(/^[A-Za-z]+$/)) {
-                        dispatch(makeFormInputsError(value))
-                        return;
-                    }else{
-                        dispatch(makeFormInputsTrue(value))
-                    }
-                }else{
-                    if (!element.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
-                        dispatch(makeFormInputsError(value))
-                        return;
-                    }else{
-                        dispatch(makeFormInputsTrue(value))
-                    }
+        for (const name in values) {
+            const value = values[name];
+            if (value.length > 0) {
+                switch (name) {
+                    case 'email':
+                        if (value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+                            dispatch(makeFormInputsTrue(name));
+                        }else{
+                            dispatch(makeFormInputsError(name));
+                            return;
+                        }
+                    break;
+                    case 'subject':
+                        if (value.match(/^[\w.'\séèçù?!à]+$/)) {
+                            dispatch(makeFormInputsTrue(name));
+
+                        }else{
+                            dispatch(makeFormInputsError(name));
+                            return;
+                        }
+                    break;
+                    case 'msgContent':
+                        if (value.match(/^[\w.'"\séèçù?!à@,]+$/)) {
+                            dispatch(makeFormInputsTrue(name));
+                        }else{
+                            dispatch(makeFormInputsError(name));
+                            return;
+                        }
+                    break;           
+                    default:
+                        if (value.match(/^[\w\s]+$/)) {
+                            dispatch(makeFormInputsTrue(name));
+                        }else{
+                            dispatch(makeFormInputsError(name));
+                            return;
+                        }
+                    break;
                 }
             }else{
                 dispatch(makeFormInputsError("champs"))
@@ -38,7 +58,7 @@ function ContactForm() {
             }
         }
 
-        dispatch(sendMail());
+        // dispatch(sendMail());
     };
 
     const handleChange = (e) => {
@@ -64,20 +84,20 @@ function ContactForm() {
         <div className="inputDiv">
             <label htmlFor="email">Email</label>
             <input onChange={handleChange} type="text" name="email" placeholder='John.Doe@gmail.com' value={values.email} disabled={cursorLoading && true } />
-            <p className={contactBool.email ? "" : "false"}>seulement les lettres de A à Z, certains caractères spéciaux et le . sont autorisés</p>
+            <p className={contactBool.email ? "" : "false"}>Veuillez respecter le format email.</p>
 
         </div>
 
         <div className="inputDiv">
             <label htmlFor="subject">Sujet</label>
             <input onChange={handleChange} type="text" name="subject" placeholder="offre d'emploi" value={values.subject} disabled={cursorLoading && true } />
-            <p className={contactBool.subject ? "" : "false"}>seulement les lettres de A à Z sont autorisés</p>
+            <p className={contactBool.subject ? "" : "false"}>seulement les lettres, chiffres et cette liste de caractères est autorisé: éèçù?!à,.'</p>
         </div>
 
         <div className="inputDiv">
             <label htmlFor="msgContent">Message</label>
             <textarea onChange={handleChange} name="msgContent" placeholder="Hello Idris, tu nous intéresse beaucoup donc nous te proposons cette magnifique offre d'emploi :)" value={values.msgContent} disabled={cursorLoading && true } />
-            <p className={contactBool.msgContent ? "" : "false"}>seulement les lettres de A à Z sont autorisés</p>
+            <p className={contactBool.msgContent ? "" : "false"}>seulement les lettres, chiffres et cette liste de caractères est autorisé: éèçù?!à,.@"'</p>
             <p className={contactBool.champs ? "" : "false"}>Veuillez remplir tout les champs avant d'envoyer le formulaire S.V.P</p>
             <p className={contactBool.notSend ? "" : "false"}>L'email n'as pas aboutit, veuillez re essayer ou directement me contacter via l'email ci-dessus.</p>
             <p className={contactBool.send ? "send" : ""}>L'email a bien été envoyé, merci d'utiliser nos services</p>
