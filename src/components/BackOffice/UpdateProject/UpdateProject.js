@@ -1,17 +1,23 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AddProjectSkill, changeFormProjectInputs, changeFormProjectSkillsInputs, deleteProjectSkill, getOneProject, UpdateOneProject } from '../../../actions/api';
 import './UpdateProject.scss';
 
 
 function UpdateProject() {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const { id } = useParams();
     const Project = useSelector((state) => state.reducer.Project);
     const cursorLoading = useSelector((state) => state.reducer.webSiteThings.cursorLoading);
-    console.log(Project);
+    
+
     useEffect(() => {
+        if (!localStorage.getItem('user')) {
+            navigate('/')
+            return;
+        }
         dispatch(getOneProject(id));
     }, []);
 

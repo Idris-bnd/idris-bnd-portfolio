@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { changeFormSkillInputs, createOneSkill } from '../../../actions/api';
 import './CreateSkill.scss';
 
@@ -8,6 +9,14 @@ function CreateSkill() {
     const dispatch = useDispatch();
     const Skill = useSelector((state) => state.reducer.Skill);
     const cursorLoading = useSelector((state) => state.reducer.webSiteThings.cursorLoading);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!localStorage.getItem('user')) {
+            navigate('/')
+            return;
+        }
+    }, []);
 
     const handleChange = (e) => {
         dispatch(changeFormSkillInputs(e.target.name, e.target.value));

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { changeFormSkillInputs, getOneSkill, UpdateOneSkill } from '../../../actions/api';
 import './UpdateSkill.scss';
 
@@ -10,8 +10,15 @@ function UpdateSkill() {
     const { id } = useParams();
     const Skill = useSelector((state) => state.reducer.Skill);
     const cursorLoading = useSelector((state) => state.reducer.webSiteThings.cursorLoading);
-
+    const navigate = useNavigate();
+    
     useEffect(() => {
+
+        if (!localStorage.getItem('user')) {
+            navigate('/')
+            return;
+        }
+
         dispatch(getOneSkill(id));
     }, [])
     const handleChange = (e) => {

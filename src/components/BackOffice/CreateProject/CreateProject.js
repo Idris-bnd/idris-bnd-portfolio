@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { AddProjectSkill, changeFormProjectInputs, changeFormProjectSkillsInputs, CreateOneProject, deleteProjectSkill, getOneProject, UpdateOneProject } from '../../../actions/api';
 import './CreateProject.scss';
 
@@ -8,6 +9,14 @@ function CreateProject() {
     const dispatch = useDispatch();
     const Project = useSelector((state) => state.reducer.Project);
     const cursorLoading = useSelector((state) => state.reducer.webSiteThings.cursorLoading);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!localStorage.getItem('user')) {
+                navigate('/')
+                return;
+            }
+    }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault()

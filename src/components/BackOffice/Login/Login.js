@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { changeLoginInputs, makeLoginInputsError, SendLoginForm } from '../../../actions/action';
+import { changeLoginInputs, makeLoginInputsError, RemoveLoader, SendLoginForm } from '../../../actions/action';
 import './Login.scss';
 
 
@@ -24,6 +24,10 @@ function Login() {
             dispatch(changeLoginInputs("pwd", infos.pwd));
             dispatch(changeLoginInputs("remember", true));
         }
+
+        setTimeout(() => {
+            dispatch(RemoveLoader());
+        }, 1000)
     }, [])
 
     const handleChange = (e) => {
@@ -42,7 +46,6 @@ function Login() {
             if (value !== "remember") {
                 if (element.length > 0 ) {
 
-                    console.log(value);
                     if (value == "email") {
                         if (element != process.env.REACT_APP_EMAIL) {
                             dispatch(makeLoginInputsError("notSend"))

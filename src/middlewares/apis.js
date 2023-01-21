@@ -68,7 +68,6 @@ const apis = (store) => (next) => (action) => {
     case GET_ONE_PROJECT:{
       axios.get(URL + "/projects/"+action.id)
       .then((res) => {
-        console.log(res.data.data);
         store.dispatch(SaveOneProject(res.data.data))
       })
       .catch(() => {
@@ -90,7 +89,6 @@ const apis = (store) => (next) => (action) => {
       }
       )
       .then((res) => {
-        console.log(res.data);
         store.dispatch(SaveSkills(res.data.data))
         window.location.href = "/back";
       })
@@ -103,12 +101,10 @@ const apis = (store) => (next) => (action) => {
   break;
   };
     case CREATE_ONE_PROJECT:{
-      console.log(store.getState().reducer.Project);
       axios.post(URL + "/projects",
       store.getState().reducer.Project
       )
       .then((res) => {
-        console.log(res.data);
         window.location.href = "/back";
       })
       .catch(() => {
@@ -122,7 +118,6 @@ const apis = (store) => (next) => (action) => {
     case DELETE_ONE_PROJECT:{
       axios.delete(URL + "/projects/" + action.id)
       .then((res) => {
-        console.log(res.data);
         store.dispatch(SaveProjects(res.data.data.newProjectsArray))
       })
       .catch(() => {
@@ -171,7 +166,6 @@ const apis = (store) => (next) => (action) => {
       }
       )
       .then((res) => {
-        console.log(res.data);
         window.location.href = "/back";
       })
       .catch(() => {
@@ -193,7 +187,6 @@ const apis = (store) => (next) => (action) => {
       }
       )
       .then((res) => {
-        console.log(res.data);
         store.dispatch(SaveSkills(res.data.data))
         window.location.href = "/back";
       })
@@ -209,8 +202,7 @@ const apis = (store) => (next) => (action) => {
     case DELETE_ONE_SKILL:{
       axios.delete(URL + "/skills/" + action.id)
       .then((res) => {
-        console.log(res.data);
-        // store.dispatch(SaveProjects(res.data.data.newProjectsArray))
+        store.dispatch(SaveSkills(res.data.data.newSkillArray));
       })
       .catch(() => {
 

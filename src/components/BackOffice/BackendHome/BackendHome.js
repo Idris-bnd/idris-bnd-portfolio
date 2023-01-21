@@ -13,7 +13,7 @@ function BackendHome() {
     const skillsList = useSelector((state) => state.reducer.skillslist);
 
     useEffect(() => {
-        skillsList[0] && ProjectsList[0] && dispatch(RemoveLoader())
+        skillsList[0] && ProjectsList[0] && dispatch(RemoveLoader());
     }, [skillsList, ProjectsList])
 
     useEffect(() => {

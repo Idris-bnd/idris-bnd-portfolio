@@ -17,6 +17,7 @@ function ContactForm() {
         for (const name in values) {
             const value = values[name];
             if (value.length > 0) {
+                dispatch(makeFormInputsTrue("champs"))
                 switch (name) {
                     case 'email':
                         if (value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
@@ -97,10 +98,10 @@ function ContactForm() {
         <div className="inputDiv">
             <label htmlFor="msgContent">Message</label>
             <textarea onChange={handleChange} name="msgContent" placeholder="Hello Idris, tu nous intéresse beaucoup donc nous te proposons cette magnifique offre d'emploi :)" value={values.msgContent} disabled={cursorLoading && true } />
-            <p className={contactBool.msgContent ? "" : "false"}>seulement les lettres, chiffres et cette liste de caractères est autorisé: éèçù?!à,.@"'</p>
-            <p className={contactBool.champs ? "" : "false"}>Veuillez remplir tout les champs avant d'envoyer le formulaire S.V.P</p>
-            <p className={contactBool.notSend ? "" : "false"}>L'email n'as pas aboutit, veuillez re essayer ou directement me contacter via l'email ci-dessus.</p>
-            <p className={contactBool.send ? "send" : ""}>L'email a bien été envoyé, merci d'utiliser nos services</p>
+            <p className={!contactBool.msgContent && 'false'}>seulement les lettres, chiffres et cette liste de caractères est autorisé: éèçù?!à,.@"'</p>
+            <p className={!contactBool.champs && 'false'}>Veuillez remplir tout les champs avant d'envoyer le formulaire S.V.P</p>
+            <p className={!contactBool.notSend && 'false'}>L'email n'as pas aboutit, veuillez re essayer ou directement me contacter via l'email ci-dessus.</p>
+            <p className={contactBool.send && 'send'}>L'email a bien été envoyé, merci d'utiliser nos services</p>
         </div>
 
         <button disabled={cursorLoading && true }>Envoyer</button>
